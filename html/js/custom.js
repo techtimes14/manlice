@@ -124,6 +124,7 @@ $(function () {
 		margin: 1,
 		dots: false,
 		nav: true,
+		animateOut: 'slideInUp',
 		navElement: 'div',
 		navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
 		lazyLoad: true,
