@@ -93,7 +93,7 @@ $(function () {
 
 	/*-------------------------------------FLEX SLIDER---------------------------------*/
 	
-		jQuery(window).load(function() {
+		jQuery(window).on('load', function() {
 			jQuery("#slider-product-name-5_carousel").flexslider({
 				animation: "slide",
 				controlNav: false, 
