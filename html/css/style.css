@@ -1995,13 +1995,14 @@ html.responsive,.responsive body {overflow-y: hidden;}
     box-shadow: none;
     border-radius: 0;
     font-weight: 600;
+    margin: 0;
 }
 .news_slider.owl-carousel{
     overflow: visible;
 }
 .news_slider.owl-carousel .owl-nav{
     position: absolute;
-    top: -15px;
+    top: -45px;
     right: 0;
 }
 .latest_news .heading{
