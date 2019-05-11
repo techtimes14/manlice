@@ -91,10 +91,34 @@ $(function () {
 	/*-------------------------------------STICKY_SIDEBAR--------------------------------*/
 	$('.stickySidebar, .stickyContent').theiaStickySidebar({additionalMarginTop: 60});
 
-	/*-------------------------------------YOUTUBE_POPUP---------------------------------*/
-	if($(".popup-youtube").length > 0){
-		$(".popup-youtube").YouTubePopUp( { autoplay: 1 } );
-	}
+	/*-------------------------------------FLEX SLIDER---------------------------------*/
+	
+		jQuery(window).load(function() {
+			jQuery("#slider-product-name-5_carousel").flexslider({
+				animation: "slide",
+				controlNav: false, 
+				itemWidth: 80, 
+				itemMargin: 5,
+				animationLoop: false,
+				slideshow: true, 
+				slideshowSpeed:2000, // slider show speed
+				controlsContainer: "#slider-product-name-5_carousel .flex-nav-container",
+				asNavFor: "#slider-product-name-5",  // slider ID                                         
+				prevText: "←", 
+				nextText: "→"  
+			});
+
+			jQuery("#slider-product-name-5").flexslider({
+				animation: "slide",
+				controlNav: false,
+				animationLoop: false,
+				slideshowSpeed:8000, // carousel show speed
+				slideshow: true,
+				smoothHeight: true,
+				directionNav: false,
+				sync: "#slider-product-name-5_carousel", // carousel ID - thumbnail holder div
+			}); 
+		});  
 
 	/*-------------------------------------NUMBERS_ONLY----------------------------------*/
     $('.numbersOnly').on("keyup", function () {
@@ -124,6 +148,7 @@ $(function () {
 		margin: 1,
 		dots: false,
 		nav: true,
+		animateOut: 'slideInUp',
 		navElement: 'div',
 		navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
 		lazyLoad: true,
