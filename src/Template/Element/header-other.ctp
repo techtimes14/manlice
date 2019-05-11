@@ -11,7 +11,7 @@ $session = $this->request->session();
 			<div class="nav_wrapper">
 				<nav class="nav_menu">
 					<ul class="clearfix">
-						<li <?php if($this->request->params['controller']=='Sites' && $this->request->params['action']=='howItWorks'){ echo 'class="active"'; }?>><a href="<?php echo Router::url(array('controller'=>'Sites','action'=>'how-it-works'),true);?>">How It Works</a></li>
+						<li <?php if($this->request->params['controller']=='Sites' && $this->request->params['action']=='features'){ echo 'class="active"'; }?>><a href="<?php echo Router::url(array('controller'=>'Sites','action'=>'how-it-works'),true);?>">How It Works</a></li>
 						<li <?php if($this->request->params['controller']=='Sites' && $this->request->params['action']=='contactUs'){ echo 'class="active"'; }?>><a href="<?php echo Router::url(array('controller'=>'Sites','action'=>'contact-us'),true);?>">Contact Us</a></li>
 						<li><a href="<?php echo Router::url('/', true);?>#findAgent" class="findAgentLink">Find Agents Now</a></li>
 					</ul>

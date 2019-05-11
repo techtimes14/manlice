@@ -28,7 +28,7 @@ class AdminEmailComponent extends Component
 		$admin_email = self::getAdminEmail(['mail_email']);
         $email = new Email('default');
         $email->to(array($userdata['email']));
-        $email->subject('List Offer Sub Admin Details');
+        $email->subject('Manlice Sub Admin Details');
         $email->from(array($admin_email->mail_email => WEBSITE_NAME));
         $email->emailFormat('html');              
         $email->template('Admin.sub_admin_details',Null);
@@ -44,7 +44,7 @@ class AdminEmailComponent extends Component
         $admin_email = self::getAdminEmail(['mail_email']);
         $email = new Email('default');
         $email->to(array($user_email));
-        $email->subject('List Offer Admin Reply');
+        $email->subject('Manlice Admin Reply');
         $email->from(array($admin_email->mail_email => WEBSITE_NAME));
         $email->emailFormat('html');              
         $email->template('Admin.reply_contact',Null);
@@ -66,7 +66,7 @@ class AdminEmailComponent extends Component
 		$from_email = self::getAdminEmail(['mail_email']);
 		$email = new Email('default');
         $email->to(array($user_email));
-        $email->subject('List Offer Password Recovery Link');
+        $email->subject('Manlice Password Recovery Link');
         $email->from(array($from_email->mail_email => WEBSITE_NAME));
         $email->emailFormat('html');
         $email->template('Admin.reset_password',NULL);
@@ -85,7 +85,7 @@ class AdminEmailComponent extends Component
 		$from_email = self::getAdminEmail(['mail_email']);
 		$email = new Email('default');
         $email->to(array($user_email));
-        $email->subject('List Offer Question Update Notification');
+        $email->subject('Manlice Question Update Notification');
         $email->from(array($from_email->mail_email => WEBSITE_NAME));
         $email->emailFormat('html');
         $email->template('Admin.question_update',NULL);
@@ -103,7 +103,7 @@ class AdminEmailComponent extends Component
         $Email = new Email('default');
         return $Email->from([$email->mail_email => WEBSITE_NAME])
                 ->to($userDetails['email'])
-                ->subject('List Offer Verification')
+                ->subject('Manlice Verification')
                 ->template('user_verification', null)
                 ->emailFormat('html')
                 ->viewVars(array('verify_url' => $url, 'url' => Router::url("/", true), 'user_details' => $userDetails, 'settings' => $settings))
@@ -115,7 +115,7 @@ class AdminEmailComponent extends Component
         $Email = new Email('default');
         return $Email->from([$from_email->mail_email => WEBSITE_NAME])
                 ->to($email)
-                ->subject('List Offer Admin Reply')
+                ->subject('Manlice Admin Reply')
                 ->template('Admin.reply_question_submitted_user', null)
                 ->emailFormat('html')
                 ->viewVars(array('url' => $url, 'message' => $message, 'settings' => $settings))
@@ -127,7 +127,7 @@ class AdminEmailComponent extends Component
         $Email = new Email('default');
         return $Email->from([$from_email->mail_email => WEBSITE_NAME])
                 ->to($email)
-                ->subject('List Offer Admin Reply')
+                ->subject('Manlice Admin Reply')
                 ->template('Admin.reply_news_comment_submitted_user', null)
                 ->emailFormat('html')
                 ->viewVars(array('url' => $url, 'message' => $message, 'settings' => $settings))
@@ -140,7 +140,7 @@ class AdminEmailComponent extends Component
         $Email = new Email('default');
 		return $Email->from([$from_email->mail_email => WEBSITE_NAME])
                 ->to($user_email)
-                ->subject('List Offer News Post Notification')
+                ->subject('Manlice News Post Notification')
                 ->template('Admin.reply_news_post_notification', null)
                 ->emailFormat('html')
                 ->viewVars(array('url' => $url, 'to_user' => $to_user, 'news_title' => $news_title, 'settings' => $settings))

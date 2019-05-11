@@ -5,7 +5,7 @@ use Cake\Routing\Router;
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>List Offer</title>
+<title>Manlice</title>
 </head>
 <body style="margin:0; padding:0px; background-color:#fff;">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#ffffff" style="font-family:sans-serif;color:#5c5c5c;font-size:13px;">
@@ -13,7 +13,7 @@ use Cake\Routing\Router;
         <td align="center" valign="top">
             <table width="700" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#f7f7f7">
                 <tr bgcolor="#000">
-                    <td colspan="3" style="text-align:center;padding-left:15px; padding-top:10px; padding-bottom:10px;"><a href="<?php echo Router::url('/', true); ?>"><img src="<?php echo Router::url('/', true); ?>images/logo.png" alt="List Offer" /></a></td>
+                    <td colspan="3" style="text-align:center;padding-left:15px; padding-top:10px; padding-bottom:10px;"><a href="<?php echo Router::url('/', true); ?>"><img src="<?php echo Router::url('/', true); ?>images/logo.png" alt="Manlice" /></a></td>
                 </tr>
                 <tr bgcolor="#414042">
                 	<td colspan="4" style="color:#ffffff;font-size:16px; font-weight:bold; text-align:center; padding:10px 15px;">Login Details</td>
@@ -23,7 +23,7 @@ use Cake\Routing\Router;
 				<p>	
 				<table width="90%" border="0" style="text-align:left; font-family:Arial, Helvetica, sans-serif; color:#333333" cellpadding="5" cellspacing="5">					
 					<tr>
-						<td>A site administrator at List Offer.Net has created an account for you as Sub Admin. You may login by clicking <a href="<?php echo $url; ?>" style="text-decoration:underline;">here</a>.</td>
+						<td>A site administrator at Manlice.Net has created an account for you as Sub Admin. You may login by clicking <a href="<?php echo $url; ?>" style="text-decoration:underline;">here</a>.</td>
 					</tr>
 					<tr>
 						<td>
@@ -43,7 +43,7 @@ use Cake\Routing\Router;
 				</td>
                 </tr>
                 <tr>
-        		 <td colspan="4" style="font-size:13px; line-height:22px; padding-left: 30px; padding-bottom: 30px;">Thank you,<br> List Offer Team.
+        		 <td colspan="4" style="font-size:13px; line-height:22px; padding-left: 30px; padding-bottom: 30px;">Thank you,<br> Manlice Team.
         		 </td><br>
         		 </tr>
  

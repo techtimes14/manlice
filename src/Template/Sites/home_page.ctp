@@ -1,36 +1,36 @@
 <?php use Cake\Routing\Router; ?>
 <!--MAIN CONTAINER START-->
 <div class="mainContainer">	
-	<div class="sectionOdd homeHowitworks">
+	<div class="sectionOdd homeFeatures">
 		<div class="container">
 			<div class="row">
 				<?php
-				if(!empty($howitworks_data)){
+				if(!empty($features_data)){
 				?>
 				<div class="col-sm-5 cont_left">
 					<div class="table_box">
 						<div class="table_box_cell">
-							<h1 class="heading"><span><?php echo $howitworks_data['title'];?></span></h1>
+							<h1 class="heading"><span><?php echo $features_data['title'];?></span></h1>
 							<div class="editor_text">
-								<?php echo $howitworks_data['description'];?>
+								<?php echo $features_data['description'];?>
 							</div>
 						</div>
 					</div>
 				</div>
 				<?php
 				}
-				if( !empty($all_howitworks) ){					
+				if( !empty($all_features) ){					
 				?>
 				<div class="col-sm-7 cont_right">
-					<div class="cont_right_bg" style="background-image: url(images/bg_howitworks.jpg);"></div>
+					<div class="cont_right_bg" style="background-image: url(images/bg_features.jpg);"></div>
 					<div class="cont_right_inner">
 						<div class="">
 							<ul class="ul row">
 							<?php
-							foreach($all_howitworks as $val_hiw){
+							foreach($all_features as $val_hiw){
 								$hiw_image = '';
 								if($val_hiw->image !=''){
-									$hiw_image = Router::url('/uploads/howitworks/thumb/', true).$val_hiw->image;
+									$hiw_image = Router::url('/uploads/features/thumb/', true).$val_hiw->image;
 								}else{
 									$hiw_image = Router::url('/images/', true).'no-image-available.png';
 								}

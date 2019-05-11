@@ -5,9 +5,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
-<meta name="Description" content="<?php if(isset($meta_description) && $meta_description !=''){ echo $meta_description; }else{ echo 'List Offer'; } ?>" />
-<meta name="Keywords" content="<?php if(isset($meta_keywords) && $meta_keywords !=''){ echo $meta_keywords; }else{ echo 'List Offer'; } ?>" />
-<title><?php if(isset($title)){ echo $title.' | '; } ?>List Offer</title>
+<meta name="Description" content="<?php if(isset($meta_description) && $meta_description !=''){ echo $meta_description; }else{ echo 'Manlice'; } ?>" />
+<meta name="Keywords" content="<?php if(isset($meta_keywords) && $meta_keywords !=''){ echo $meta_keywords; }else{ echo 'Manlice'; } ?>" />
+<title><?php if(isset($title)){ echo $title.' | '; } ?>Manlice</title>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
 <?php echo $this->Html->meta('icon') ?>

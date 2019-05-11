@@ -25,7 +25,7 @@ class EmailComponent extends Component
         $admin_email = self::getAdminEmail(['mail_email','contact_email']);
 		$email = new Email();
         $email->to(array($admin_email->contact_email));
-        $email->subject('List Offer Contact');
+        $email->subject('Manlice Contact');
         $email->from(array($admin_email->mail_email => WEBSITE_NAME));
         $email->emailFormat('html');              
         $email->template('contact_admin',Null);
@@ -49,7 +49,7 @@ class EmailComponent extends Component
         $form_email = self::getAdminEmail(['mail_email']);
         $email = new Email();
         $email->to(array($user_email));
-        $email->subject('List Offer Account Verification');
+        $email->subject('Manlice Account Verification');
         $email->from(array($form_email->mail_email => WEBSITE_NAME));
         $email->emailFormat('html');              
         $email->template('user_verification',NULL);
@@ -72,7 +72,7 @@ class EmailComponent extends Component
         $form_email = self::getAdminEmail(['mail_email']);
         $email = new Email();
         $email->to(array($user_email));
-        $email->subject('List Offer Password Reset');
+        $email->subject('Manlice Password Reset');
         $email->from(array($form_email->mail_email => WEBSITE_NAME));
         $email->emailFormat('html');
         $email->template('reset_password',NULL);

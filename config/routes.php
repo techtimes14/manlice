@@ -63,7 +63,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 
     $routes->connect('/admin', ['plugin' => 'Admin', 'controller' => 'admin-details', 'action' => 'login']);
 	$routes->connect('/', ['controller' => 'Sites', 'action' => 'home-page']);
-	$routes->connect('/how-it-works', ['controller' => 'Sites', 'action' => 'how-it-works']);
+	$routes->connect('/features', ['controller' => 'Sites', 'action' => 'features']);
 	$routes->connect('/contact-us', ['controller' => 'Sites', 'action' => 'contact-us']);
 	$routes->connect('/about-us', ['controller' => 'Sites', 'action' => 'aboutUs']);	
 	

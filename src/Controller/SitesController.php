@@ -32,22 +32,22 @@ class SitesController extends AppController{
 		$clients_about_us	= $this->getCmsData(4);
 		$ServiceTable 		= TableRegistry::get('Service');
 		$all_services 		= $ServiceTable->find('all',['conditions'=>['status'=>'A'],'order'=>['id asc']])->toArray();
-		$HowitworkTable 	= TableRegistry::get('Howitwork');
-		$all_howitworks 	= $HowitworkTable->find('all',['conditions'=>['status'=>'A'],'order'=>['id asc']])->toArray();
-		$howitworks_data	= $this->getCmsData(5);
+		$FeatureTable 	= TableRegistry::get('Feature');
+		$all_features 	= $FeatureTable->find('all',['conditions'=>['status'=>'A'],'order'=>['id asc']])->toArray();
+		$features_data	= $this->getCmsData(5);
 		$sercices_data		= $this->getCmsData(6);
 		
-		$this->set(compact('all_banners','all_testimonials','clients_about_us','all_services','all_howitworks','howitworks_data','sercices_data'));
+		$this->set(compact('all_banners','all_testimonials','clients_about_us','all_services','all_features','features_data','sercices_data'));
     }
 
 	/**
-	* howItWork is for how it work page
+	* feature is for how it work page
 	*/
-	public function howItWorks(){
-		$HowitworkTable 	= TableRegistry::get('Howitwork');
-		$all_howitworks 	= $HowitworkTable->find('all',['conditions'=>['status'=>'A'],'order'=>['id asc']])->toArray();
+	public function features(){
+		$FeatureTable 	= TableRegistry::get('Feature');
+		$all_features 	= $FeatureTable->find('all',['conditions'=>['status'=>'A'],'order'=>['id asc']])->toArray();
 		$cms_data	= $this->getCmsData(5);
-		$this->set(compact('all_howitworks','cms_data'));
+		$this->set(compact('all_features','cms_data'));
 	}
 	
 	/**

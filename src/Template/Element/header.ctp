@@ -29,7 +29,7 @@ $session = $this->request->session();
 			<div class="clear"></div>
 		</div>
 	</div>
-	
+	<?php //if($this->request->params['controller']=='Sites' && $this->request->params['action']=='homePage')?>
 	<div class="sectionOdd homeBanner">
 		<div class="container">
 			<div class="row">

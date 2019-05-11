@@ -84,8 +84,8 @@ define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'vendor' . DS . 'cakephp' . DS . 'c
 define('CORE_PATH', CAKE_CORE_INCLUDE_PATH . DS);
 define('CAKE', CORE_PATH . 'src' . DS);
 
-define('DB_PREFIX', 'lo_');
-define('WEBSITE_NAME', 'List Offer');
+define('DB_PREFIX', 'ml_');
+define('WEBSITE_NAME', 'Manlice');
 define("LINK_TIME", 7200); //2 hours
 define("SIGNUP_VERIFY_LINK_TIME", 86400); //24 hours
 define("LISTOFFER_LOADER", 'loader.gif'); //24 hours

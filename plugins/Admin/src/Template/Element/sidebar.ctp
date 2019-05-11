@@ -9,7 +9,7 @@ $action = strtolower ($this->request->action);
         <div class="sidebar-header">
             <div class="brand">
                 <a href="<?php echo Router::url('/admin/',true); ?>">
-                    <img src="<?php echo Router::url("/admin/images/logo-innr.png",true); ?>" width="90%">
+                    <img src="<?php echo Router::url("/images/logo.png",true); ?>" width="100%">
                 </a>
             </div>
         </div>
@@ -48,83 +48,17 @@ $action = strtolower ($this->request->action);
                 </li>
 			<?php }*/ ?>
                  <!--Admin Users end -->
-
-                <!-- User Management start -->
-			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Users')))) ){?>
-                <li class="<?php if($this->request->params['controller'] == 'Users' && $this->request->params['action'] != 'dashboard'): echo "active open"; endif; ?>">
-                    <a href="<?php echo Router::url(['controller' => 'users']); ?>">
-                        <i class="fa fa-users"></i>
-                        User Management
-						<i class="fa arrow"></i>
-                    </a>
-					<ul>
-					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Users'))) && $session->read('permissions.'.strtolower('Users').'.'.strtolower('list-data'))==1) ){?>
-                        <li class="<?php if($this->request->params['controller'] == 'Users' && $this->request->params['action'] == 'listData'): echo "active"; endif; ?>">
-                            <a href="<?php echo Router::url(['controller' => 'Users', 'action' => 'list-data']); ?>">
-								<i class="fa fa-list-alt"></i>&nbsp;
-								View All
-							</a>
-                        </li>
-					<?php } ?>
-					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Users'))) && $session->read('permissions.'.strtolower('Users').'.'.strtolower('add-user'))==1) ){?>
-                        <li class="<?php if($this->request->params['controller'] == 'Users' && $this->request->params['action'] == 'add-user'): echo "active"; endif; ?>">
-                            <a href="<?php echo Router::url(['controller' => 'Users', 'action' => 'add-user']); ?>">
-                                <i class="fa fa-plus"></i>&nbsp;
-                                Add
-                            </a>
-                        </li>
-					<?php } ?>
-                    </ul>
-                </li>
-			<?php } ?>
-                <!-- User Management end -->
 				
-				<!-- Mortgage Status Management start -->
-			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('MortgageStatuses')))) ){?>
-                <li class="<?php if($this->request->params['controller'] == 'MortgageStatuses' && $this->request->params['action'] != 'dashboard'): echo "active open"; endif; ?>">
-                    <a href="<?php echo Router::url(['controller' => 'mortgage-statuses']); ?>">
-                        <i class="fa fa-users"></i>
-                        Mortgage Management
-						<i class="fa arrow"></i>
-                    </a>
-					<ul>
-					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('MortgageStatuses'))) && $session->read('permissions.'.strtolower('MortgageStatuses').'.'.strtolower('list-data'))==1) ){?>
-                        <li class="<?php if($this->request->params['controller'] == 'MortgageStatuses' && $this->request->params['action'] == 'listData'): echo "active"; endif; ?>">
-                            <a href="<?php echo Router::url(['controller' => 'MortgageStatuses', 'action' => 'list-data']); ?>">
-								<i class="fa fa-list-alt"></i>&nbsp;
-								View All
-							</a>
-                        </li>
-					<?php } ?>
-					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('MortgageStatuses'))) && $session->read('permissions.'.strtolower('MortgageStatuses').'.'.strtolower('add-mortgage-status'))==1) ){?>
-                        <li class="<?php if($this->request->params['controller'] == 'MortgageStatuses' && $this->request->params['action'] == 'add-mortgage-status'): echo "active"; endif; ?>">
-                            <a href="<?php echo Router::url(['controller' => 'MortgageStatuses', 'action' => 'add-mortgage-status']); ?>">
-                                <i class="fa fa-plus"></i>&nbsp;
-                                Add
-                            </a>
-                        </li>
-					<?php } ?>
-                    </ul>
-                </li>
-			<?php } ?>
-                <!-- Mortgage Status Management end -->
-				
-				<!-- Property for Sell and Buy Management end -->
-			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Submissions')))) ){?>
-                <li class="<?php if($this->request->params['controller'] == 'Submissions' && ($this->request->params['action'] == 'propertySellListData' || $this->request->params['action'] == 'matchingPropertyBuyListData' || $this->request->params['action'] == 'viewPropertySell')): echo "active open"; endif; ?>">
-                    <a href="<?php echo Router::url(['controller' => 'submissions', 'action' => 'property-sell-list-data']);?>">
-                        <i class="fa fa-home"></i>
-                        Property For Sell
-                    </a>
-                </li>
-				<li class="<?php if($this->request->params['controller'] == 'Submissions' && ($this->request->params['action'] == 'propertyBuyListData' || $this->request->params['action'] == 'matchingPropertySellListData' || $this->request->params['action'] == 'viewPropertyBuy')): echo "active open"; endif; ?>">
-                    <a href="<?php echo Router::url(['controller' => 'submissions', 'action' => 'property-buy-list-data']); ?>">
-                        <i class="fa fa-home"></i>
-                        Property To Buy
+                <!-- Cms Management start -->
+			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Cms')))) ){?>
+                <li class="<?php if($this->request->params['controller'] == 'Cms'): echo "active open"; endif; ?>">
+                    <a href="<?php echo Router::url(['controller' => 'cms', 'action' => 'list-data']); ?>">
+                        <i class="fa fa-book"></i>
+                        CMS Management
                     </a>
                 </li>
 			<?php } ?>
-                <!-- Property for Sell and Buy Management start -->
+                <!-- Cms Management end -->
 				
 				<!-- Banner start -->
 			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('BannerSections')))) ){?>
@@ -156,26 +90,26 @@ $action = strtolower ($this->request->action);
 			<?php } ?>
                 <!-- Banner end -->
 				
-				<!-- Testimonial start -->
-			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Testimonials')))) ){?>
-                <li class="<?php if($this->request->params['controller'] == 'Testimonials'): echo "active open"; endif; ?>">
+				<!-- Features start -->
+			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Features')))) ){?>
+                <li class="<?php if($this->request->params['controller'] == 'Features'): echo "active open"; endif; ?>">
                     <a href="">
-                        <i class="fa fa-comment"></i>
-                        Testimonial Management
+                        <i class="fa fa-briefcase"></i>
+                        Feature Management
                         <i class="fa arrow"></i>
                     </a>
                     <ul>
-					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Testimonials'))) && $session->read('permissions.'.strtolower('Testimonials').'.'.strtolower('list-data'))==1) ){?>
-                        <li class="<?php if($this->request->params['controller'] == 'Testimonials' && $this->request->params['action'] == 'listData'): echo "active"; endif; ?>">
-                            <a href="<?php echo Router::url(['controller' => 'testimonials', 'action' => 'list-data']); ?>">
+					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Features'))) && $session->read('permissions.'.strtolower('Features').'.'.strtolower('list-data'))==1) ){?>
+                        <li class="<?php if($this->request->params['controller'] == 'Features' && $this->request->params['action'] == 'listData'): echo "active"; endif; ?>">
+                            <a href="<?php echo Router::url(['controller' => 'features', 'action' => 'list-data']); ?>">
                                <i class="fa fa-list-alt"></i>&nbsp;
                                View All
                             </a>
                         </li>
 					<?php } ?>
-					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Testimonials'))) && $session->read('permissions.'.strtolower('Testimonials').'.'.strtolower('add-testimonial'))==1) ){?>
-						<li class="<?php if($this->request->params['controller'] == 'Testimonials' && $this->request->params['action'] == 'addTestimonial'): echo "active"; endif; ?>">
-                            <a href="<?php echo Router::url(['controller' => 'testimonials', 'action' => 'add-testimonial']); ?>">
+					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Features'))) && $session->read('permissions.'.strtolower('Features').'.'.strtolower('add'))==1) ){?>
+						<li class="<?php if($this->request->params['controller'] == 'Features' && $this->request->params['action'] == 'add'): echo "active"; endif; ?>">
+                            <a href="<?php echo Router::url(['controller' => 'features', 'action' => 'add']); ?>">
                                 <i class="fa fa-plus"></i>&nbsp;
                                 Add
                             </a>
@@ -184,7 +118,7 @@ $action = strtolower ($this->request->action);
                     </ul>
                 </li>
 			<?php } ?>
-                <!-- Testimonial end -->
+                <!-- Features end -->
 				
 				<!-- Service start -->
 			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Services')))) ){?>
@@ -216,36 +150,6 @@ $action = strtolower ($this->request->action);
 			<?php } ?>
                 <!-- Service end -->
 				
-				<!-- Howitworks start -->
-			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Howitworks')))) ){?>
-                <li class="<?php if($this->request->params['controller'] == 'Howitworks'): echo "active open"; endif; ?>">
-                    <a href="">
-                        <i class="fa fa-briefcase"></i>
-                        Howitwork Management
-                        <i class="fa arrow"></i>
-                    </a>
-                    <ul>
-					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Howitworks'))) && $session->read('permissions.'.strtolower('Howitworks').'.'.strtolower('list-data'))==1) ){?>
-                        <li class="<?php if($this->request->params['controller'] == 'Howitworks' && $this->request->params['action'] == 'listData'): echo "active"; endif; ?>">
-                            <a href="<?php echo Router::url(['controller' => 'howitworks', 'action' => 'list-data']); ?>">
-                               <i class="fa fa-list-alt"></i>&nbsp;
-                               View All
-                            </a>
-                        </li>
-					<?php } ?>
-					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Howitworks'))) && $session->read('permissions.'.strtolower('Howitworks').'.'.strtolower('add'))==1) ){?>
-						<li class="<?php if($this->request->params['controller'] == 'Howitworks' && $this->request->params['action'] == 'add'): echo "active"; endif; ?>">
-                            <a href="<?php echo Router::url(['controller' => 'howitworks', 'action' => 'add']); ?>">
-                                <i class="fa fa-plus"></i>&nbsp;
-                                Add
-                            </a>
-                        </li>
-					<?php } ?>
-                    </ul>
-                </li>
-			<?php } ?>
-                <!-- Howitworks end -->
-				
 				<!-- Property Type start -->
 			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Properties')))) ){?>
                 <li class="<?php if($this->request->params['controller'] == 'Properties'): echo "active open"; endif; ?>">
@@ -275,27 +179,27 @@ $action = strtolower ($this->request->action);
                 </li>
 			<?php } ?>
                 <!-- Property Type end -->
-				
-				<!-- Price start -->
-			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Prices')))) ){?>
-                <li class="<?php if($this->request->params['controller'] == 'Prices'): echo "active open"; endif; ?>">
-                    <a href="">
-                        <i class="fa fa-rss-square"></i>
-                        Price Management
-                        <i class="fa arrow"></i>
+
+                <!-- Quote Management start -->
+			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Users')))) ){?>
+                <li class="<?php if($this->request->params['controller'] == 'Users' && $this->request->params['action'] != 'dashboard'): echo "active open"; endif; ?>">
+                    <a href="<?php echo Router::url(['controller' => 'users']); ?>">
+                        <i class="fa fa-users"></i>
+                        Quote Management
+						<i class="fa arrow"></i>
                     </a>
-                    <ul>
-					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Prices'))) && $session->read('permissions.'.strtolower('Prices').'.'.strtolower('list-data'))==1) ){?>
-                        <li class="<?php if($this->request->params['controller'] == 'Prices' && $this->request->params['action'] == 'listData'): echo "active"; endif; ?>">
-                            <a href="<?php echo Router::url(['controller' => 'prices', 'action' => 'list-data']); ?>">
-                               <i class="fa fa-list-alt"></i>&nbsp;
-                               View All
-                            </a>
+					<ul>
+					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Users'))) && $session->read('permissions.'.strtolower('Users').'.'.strtolower('list-data'))==1) ){?>
+                        <li class="<?php if($this->request->params['controller'] == 'Users' && $this->request->params['action'] == 'listData'): echo "active"; endif; ?>">
+                            <a href="<?php echo Router::url(['controller' => 'Users', 'action' => 'list-data']); ?>">
+								<i class="fa fa-list-alt"></i>&nbsp;
+								View All
+							</a>
                         </li>
 					<?php } ?>
-					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Prices'))) && $session->read('permissions.'.strtolower('Prices').'.'.strtolower('add'))==1) ){?>
-						<li class="<?php if($this->request->params['controller'] == 'Prices' && $this->request->params['action'] == 'addPrice'): echo "active"; endif; ?>">
-                            <a href="<?php echo Router::url(['controller' => 'prices', 'action' => 'add-price']); ?>">
+					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Users'))) && $session->read('permissions.'.strtolower('Users').'.'.strtolower('add-user'))==1) ){?>
+                        <li class="<?php if($this->request->params['controller'] == 'Users' && $this->request->params['action'] == 'add-user'): echo "active"; endif; ?>">
+                            <a href="<?php echo Router::url(['controller' => 'Users', 'action' => 'add-user']); ?>">
                                 <i class="fa fa-plus"></i>&nbsp;
                                 Add
                             </a>
@@ -304,28 +208,36 @@ $action = strtolower ($this->request->action);
                     </ul>
                 </li>
 			<?php } ?>
-                <!-- Price end -->
+                <!-- Quote Management end -->
 				
-				<!-- Plan start -->
-			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Plans')))) ){?>
-                <li class="<?php if($this->request->params['controller'] == 'Plans'): echo "active open"; endif; ?>">
+				<!-- News start -->
+			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('News')))) ){?>
+                <li class="<?php if($this->request->params['controller'] == 'News'): echo "active open"; endif; ?>">
                     <a href="">
-                        <i class="fa fa-globe"></i>
-                        Plan Management
+                        <i class="fa fa-info-circle"></i>
+                        News Management
                         <i class="fa arrow"></i>
                     </a>
                     <ul>
-					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Plans'))) && $session->read('permissions.'.strtolower('Plans').'.'.strtolower('list-data'))==1) ){?>
-                        <li class="<?php if($this->request->params['controller'] == 'Plans' && $this->request->params['action'] == 'listData'): echo "active"; endif; ?>">
-                            <a href="<?php echo Router::url(['controller' => 'plans', 'action' => 'list-data']); ?>">
+					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('News'))) && $session->read('permissions.'.strtolower('News').'.'.strtolower('list-category'))==1) ){?>
+                        <li class="<?php if($this->request->params['controller'] == 'News' && $this->request->params['action'] == 'listCategory'): echo "active"; endif; ?>">
+                            <a href="<?php echo Router::url(['controller' => 'news', 'action' => 'list-category']); ?>">
+                               <i class="fa fa-list-alt"></i>&nbsp;
+                               Category
+                            </a>
+                        </li>
+					<?php } ?>
+					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('News'))) && $session->read('permissions.'.strtolower('News').'.'.strtolower('list-data'))==1) ){?>
+                        <li class="<?php if($this->request->params['controller'] == 'News' && $this->request->params['action'] == 'listData'): echo "active"; endif; ?>">
+                            <a href="<?php echo Router::url(['controller' => 'news', 'action' => 'list-data']); ?>">
                                <i class="fa fa-list-alt"></i>&nbsp;
                                View All
                             </a>
                         </li>
 					<?php } ?>
-					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Plan'))) && $session->read('permissions.'.strtolower('Plan').'.'.strtolower('add-plan'))==1) ){?>
-						<li class="<?php if($this->request->params['controller'] == 'Plan' && $this->request->params['action'] == 'addPlan'): echo "active"; endif; ?>">
-                            <a href="<?php echo Router::url(['controller' => 'plans', 'action' => 'add-plan']); ?>">
+					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('News'))) && $session->read('permissions.'.strtolower('News').'.'.strtolower('add-news'))==1) ){?>
+						<li class="<?php if($this->request->params['controller'] == 'News' && $this->request->params['action'] == 'addNews'): echo "active"; endif; ?>">
+                            <a href="<?php echo Router::url(['controller' => 'news', 'action' => 'add-news']); ?>">
                                 <i class="fa fa-plus"></i>&nbsp;
                                 Add
                             </a>
@@ -334,7 +246,37 @@ $action = strtolower ($this->request->action);
                     </ul>
                 </li>
 			<?php } ?>
-                <!-- Plan end -->
+                <!-- News end -->
+				
+				<!-- Testimonial start -->
+			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Testimonials')))) ){?>
+                <li class="<?php if($this->request->params['controller'] == 'Testimonials'): echo "active open"; endif; ?>">
+                    <a href="">
+                        <i class="fa fa-comment"></i>
+                        Testimonial Management
+                        <i class="fa arrow"></i>
+                    </a>
+                    <ul>
+					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Testimonials'))) && $session->read('permissions.'.strtolower('Testimonials').'.'.strtolower('list-data'))==1) ){?>
+                        <li class="<?php if($this->request->params['controller'] == 'Testimonials' && $this->request->params['action'] == 'listData'): echo "active"; endif; ?>">
+                            <a href="<?php echo Router::url(['controller' => 'testimonials', 'action' => 'list-data']); ?>">
+                               <i class="fa fa-list-alt"></i>&nbsp;
+                               View All
+                            </a>
+                        </li>
+					<?php } ?>
+					<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Testimonials'))) && $session->read('permissions.'.strtolower('Testimonials').'.'.strtolower('add-testimonial'))==1) ){?>
+						<li class="<?php if($this->request->params['controller'] == 'Testimonials' && $this->request->params['action'] == 'addTestimonial'): echo "active"; endif; ?>">
+                            <a href="<?php echo Router::url(['controller' => 'testimonials', 'action' => 'add-testimonial']); ?>">
+                                <i class="fa fa-plus"></i>&nbsp;
+                                Add
+                            </a>
+                        </li>
+					<?php } ?>
+                    </ul>
+                </li>
+			<?php } ?>
+                <!-- Testimonial end -->
 				
 				<!-- Contacts Management end -->
 			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Contacts')))) ){?>
@@ -355,17 +297,6 @@ $action = strtolower ($this->request->action);
                     </a>
                 </li>
                 <!-- Newsletter Subscriptions Management start -->*/?>
-				
-                <!-- Cms Management end -->
-			<?php if( (!empty($session->read('AdminUser')) && $session->read('AdminUser.type')=='SA') || (!empty($session->read('permissions.'.strtolower('Cms')))) ){?>
-                <li class="<?php if($this->request->params['controller'] == 'Cms'): echo "active open"; endif; ?>">
-                    <a href="<?php echo Router::url(['controller' => 'cms', 'action' => 'list-data']); ?>">
-                        <i class="fa fa-book"></i>
-                        CMS Management
-                    </a>
-                </li>
-			<?php } ?>
-                <!-- Cms Management start -->
 				
 				<?php /*<!-- Settings Management start -->
                 <li class="<?php if($this->request->params['controller'] == 'Settings'): echo "active open"; endif; ?>">

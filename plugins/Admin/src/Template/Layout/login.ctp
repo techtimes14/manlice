@@ -29,7 +29,7 @@
         <div class="card">
             <header class="auth-header">
                 <h1 class="auth-title">
-                    <?php echo $this->Html->image("/admin/images/logo-black.png"); ?>
+                    <?php echo $this->Html->image("/images/logo.png"); ?>
                   </h1>
             </header>
 
