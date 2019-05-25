@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+    font-family: 'sailecregular';
+    src: url('fonts/sailec-webfont.eot');
+    src: url('fonts/sailec-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/sailec-webfont.woff2') format('woff2'),
+         url('fonts/sailec-webfont.woff') format('woff'),
+         url('fonts/sailec-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'sailecregular';
+    src: url('fonts/sailec-webfont.eot');
+    src: url('fonts/sailec-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/sailec-webfont.woff2') format('woff2'),
+         url('fonts/sailec-webfont.woff') format('woff'),
+         url('fonts/sailec-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'sailecbold';
+    src: url('fonts/sailecbold-webfont.eot');
+    src: url('fonts/sailecbold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/sailecbold-webfont.woff2') format('woff2'),
+         url('fonts/sailecbold-webfont.woff') format('woff'),
+         url('fonts/sailecbold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'sailecregular';
+    src: url('fonts/sailec-book-webfont.eot');
+    src: url('fonts/sailec-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/sailec-book-webfont.woff2') format('woff2'),
+         url('fonts/sailec-book-webfont.woff') format('woff'),
+         url('fonts/sailec-book-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'sailecregular';
+    src: url('fonts/sailecregular-webfont.eot');
+    src: url('fonts/sailecregular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/sailecregular-webfont.woff2') format('woff2'),
+         url('fonts/sailecregular-webfont.woff') format('woff'),
+         url('fonts/sailecregular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
