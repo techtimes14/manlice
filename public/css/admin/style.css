@@ -15572,7 +15572,7 @@ background: #d2d6de;  }
 .auth form .form-group {
   position: relative; }
   .auth form .form-group label {
-    margin-bottom: 0;
+    margin-bottom: 5px;
     vertical-align: bottom;
     font-size: .8125rem; }
   .auth form .form-group .form-control {
