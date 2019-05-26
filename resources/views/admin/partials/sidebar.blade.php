@@ -36,6 +36,26 @@
 		</div>
 	</li>
     <!-- Product Management Section End -->
+	
+	<li class="nav-item @if (Route::current()->getName() == 'admin.cms.list' || Route::current()->getName() == 'admin.cms.add' || Route::current()->getName() == 'admin.cms.edit') active @endif">
+        <a class="nav-link" data-toggle="collapse" href="#cms" aria-expanded="false" aria-controls="cms">
+			<i class="far fa-file-alt menu-icon"></i>
+			<span class="menu-title">{{ __('Cms Management') }}</span>
+			<span class="pull-right-container">
+				<i class="fa fa-angle-right pull-right"></i>
+			</span>
+        </a>
+        <div class="collapse @if (Route::current()->getName() == 'admin.cms.list' || Route::current()->getName() == 'admin.cms.add' || Route::current()->getName() == 'admin.cms.edit') show @endif" id="cms">
+			<ul class="nav flex-column sub-menu">
+				<li class="nav-item @if (Route::current()->getName() == 'admin.cms.list') active @endif">
+					<a class="nav-link" href="{{ route('admin.cms.list') }}"> List </a>
+				</li>
+				<li class="nav-item @if (Route::current()->getName() == 'admin.cms.add') active @endif">
+					<a class="nav-link" href="{{ route('admin.cms.add') }}"> Add </a>
+				</li>
+			</ul>
+        </div>
+	</li>
 
     <li class="nav-item @if (Route::current()->getName() == 'admin.settings') active @endif">
 		<a class="nav-link" href="{{ route('admin.settings') }}">

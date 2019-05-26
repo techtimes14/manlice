@@ -1,16 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use Illuminate\Http\Request;
-
 use Auth;
-
 use App\Model\Cms;
 
 class CmsController extends CommonController
 {
-
     /**
      * Create a new controller instance.
      *
@@ -28,12 +23,6 @@ class CmsController extends CommonController
      */
     public function list(Request $request)
     {
-        /* check permission */
-        if($this->checkPermission('cms','list') == false){
-            $request->session()->flash('alert-danger', "You don't have permissions to access this page.");
-            return redirect()->route('admin.dashboard');
-            exit;
-        }
         $orWhere = array();
         $where = [];
         // search confitions
@@ -69,12 +58,6 @@ class CmsController extends CommonController
      */
     public function add(Request $request)
     {
-        /* check permission */
-        if($this->checkPermission('cms','add') == false){
-            $request->session()->flash('alert-danger', "You don't have permissions to access this page.");
-            return redirect()->route('admin.dashboard');
-            exit;
-        }
         $cms = new Cms;
         if($request->isMethod('PUT')){
             $request->validate([
@@ -100,12 +83,6 @@ class CmsController extends CommonController
      */
     public function edit($id = null, Request $request)
     {
-        /* check permission */
-        if($this->checkPermission('cms','edit') == false){
-            $request->session()->flash('alert-danger', "You don't have permissions to access this page.");
-            return redirect()->route('admin.dashboard');
-            exit;
-        }
         if($id == null){
             return redirect()->route('admin.dashboard');
         }
@@ -141,12 +118,6 @@ class CmsController extends CommonController
      */
     public function delete($id = null, Request $request)
     {
-        /* check permission */
-        if($this->checkPermission('cms','delete') == false){
-            $request->session()->flash('alert-danger', "You don't have permissions to access this page.");
-            return redirect()->route('admin.dashboard');
-            exit;
-        }
         if($id == null){
             return redirect()->route('admin.dashboard');
         }
