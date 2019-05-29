@@ -3,36 +3,13 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Auth;
 use Image;
-use App\Model\Country;
 use App\Model\Product;
-use App\Model\Category;
-use App\Model\Occasion;
-use App\Model\ProductExtra;
-use App\Model\ProductAttribute;
 use App\Model\ProductImage;
-use App\Model\AssignProductExtra;
-use App\Model\ShippingMethod;
-use App\Model\DeliveryOption;
-use App\Model\TaxClass;
-use App\Model\ProductShipping;
-use App\Model\RelatedProduct;
-use App\Model\City;
-use App\Model\RelatedCity;
-use App\Model\GiftAddonGroup;
-use App\Model\PincodeGroup;
-use App\Model\ProductRelatedGiftAddonGroup;
-use App\Model\ProductRelatedRestrictedPincodeGroup;
-use App\Model\ProductExtraAddonGroup;
-use App\Model\CityGroup;
-use App\Model\ProductRelatedCityGroup;
-use App\Model\CityGroupRelation;
-use App\Model\ProductVideo;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 class ProductController extends CommonController
 {
-
     /**
      * Create a new controller instance.
      *
@@ -50,12 +27,6 @@ class ProductController extends CommonController
      */
     public function list(Request $request)
     {
-        /* check permission */
-        if($this->checkPermission('product','list') == false){
-            $request->session()->flash('alert-danger', "You don't have permissions to access this page.");
-            return redirect()->route('admin.dashboard');
-            exit;
-        }
         $orWhere = array();
         $where = ['is_deleted'=>'N'];
         // search conditions
@@ -88,378 +59,42 @@ class ProductController extends CommonController
      * @return \Illuminate\Http\Response
      */
     public function add(Request $request) {
-        /* check permission */
-        if($this->checkPermission('product','add') == false){
-            $request->session()->flash('alert-danger', "You don't have permissions to access this page.");
-            return redirect()->route('admin.dashboard');
-            exit;
-        }
-        $categories = new Category;
-        $category_list = $categories->join('taxonomies as taxonomy', 'categories.taxonomy_id', '=', 'taxonomy.id')->orderBy('taxonomy.title', 'ASC')->pluck('taxonomy.title', 'categories.id');
-
-        $occasions = new Occasion;
-        $occasions_list = $occasions->join('taxonomies as taxonomy', 'occasions.taxonomy_id', '=', 'taxonomy.id')->orderBy('taxonomy.title', 'ASC')->pluck('taxonomy.title', 'occasions.id');
-
-        //$product_extra_list = ProductExtra::select(DB::raw("CONCAT(title,' [".config('global.currency')." ',price,']') AS title_price"),'id')->where('is_block','N')->pluck('title_price','id');
-
-        $product_extra_addon_groups = ProductExtraAddonGroup::where('is_block','N')->orderBy('title', 'ASC')->pluck('title','id');
-
-        $shipping_methods = ShippingMethod::where('is_block','N')->orderBy('title', 'ASC')->pluck('title','id');
-
-        $product_list = Product::where([['status','A'],['is_deleted','N']])->orderBy('id','desc')->pluck('product_name','id');
-
-        $city_list = CityGroup::where('is_block','N')->orderBy('title','asc')->pluck('title','id');
-
-        $gift_addon_group_list = GiftAddonGroup::where('is_block','N')->orderBy('title','asc')->pluck('title','id');
-        $pincode_group_list = PincodeGroup::where('is_block','N')->orderBy('title','asc')->pluck('title','id');
-
         $products = new Product;
         if($request->isMethod('PUT')){
-
-            // $request->validate([
-            //     'product_name' => 'required|unique:products',
-            //     //'image' => 'required',
-            //     //'price' => 'required|numeric'
-            // ]);
+			dd($request);
 
             //=======For category product data=======//
             if((isset($request->categories_id) && count($request->categories_id)>0)){
                 foreach( $request->categories_id as $cat_id ) {
                     $product_request = [];
-                    $product_request['categories_id']       = $cat_id;
-                    $product_request['product_name']        = $request->product_name;
-                    $product_request['has_attribute']       = $request->has_attribute;
-                    $product_request['description']         = $request->description;
-                    $product_request['delivery_information']= $request->delivery_information;
-                    $product_request['care_instruction']    = $request->care_instruction;
-                    $product_request['slug']                = Product::getUniqueSlug($request->product_name);
-                    $product_request['created_by']          = Auth::guard('admin')->user()->id;
-
-                    if(isset($request->has_attribute) && $request->has_attribute == 'NO') {
-                        $product_request['price']        = $request->price;
-                        $product_request['sortby_price'] = $request->price;
-                    }
-
-                    $product_request['special_delivery'] = $request->special_delivery;
-                    $product_request['tax_class']        = $request->tax_class;
-
-                    //Delivery delay section
-                    if((isset($request->delivery_delay_days) && $request->delivery_delay_days>0)){
-                        $delivery_delay_days      = $request->delivery_delay_days;
-                        $delivery_delay_days_from = date('Y-m-d',strtotime(date('Y-m-d').'+ '.$delivery_delay_days.' days'));
-                        $product_request['delivery_delay_days']      = $delivery_delay_days;
-                        $product_request['delivery_delay_days_from'] = $delivery_delay_days_from;
-                    }else{
-                        $product_request['delivery_delay_days']      = 0;
-                        $product_request['delivery_delay_days_from'] = date('Y-m-d');
-                    }
-
-                    $product_request['alt_key']          = $request->alt_key;
-                    $product_request['meta_title']       = $request->meta_title;
+                    $product_request['product_name']    = $request->product_name;
+                    $product_request['description']     = $request->description;
+                    $product_request['slug']            = Product::getUniqueSlug($request->product_name);                    
+                    $product_request['price']        	= $request->price;
+                    $product_request['special_price']   = $request->special_price;
+					$product_request['meta_title']       = $request->meta_title;
                     $product_request['meta_keyword']     = $request->meta_keyword;
                     $product_request['meta_description'] = $request->meta_description;
 
                     if($product_data = Product::create($product_request)){
-                        /* For sku calculation */
-                        $sku_generate_array = array();
-                        $sku_generate_array['category_id']  = $cat_id;
-                        $sku_generate_array['product_type'] = 'A';
-                        $sku_generate_array['delivery_by']  = 'H';
-                        $sku_generate_array['product_id']   = $product_data->id;
-                        $sku_generate_array['country_id']   = 99;
-                        $sku = @$this->generate_sku($sku_generate_array);
-                        /* Update product sku */
-                        Product::where('id',$product_data->id)->update(['sku'=>$sku]);
-
-                        //=== Extra addon set ===//
-                        if(isset($request->product_extras_id) && count($request->product_extras_id)>0){
-                            foreach ($request->product_extras_id as $product_extras_id) {
-                                $product_extra = [];
-                                $product_extra['product_id']                   = $product_data->id;
-                                $product_extra['product_extra_addon_group_id'] = $product_extras_id;
-                                AssignProductExtra::create($product_extra);
-                            }
-                        }
-
-                        //=== Product Shipping ===//
-                        $product_shipping = [];
-                        if(isset($request->shipping_methods) && count($request->shipping_methods)>0){
-                            foreach ($request->shipping_methods as $key_shipping => $val_shipping) {
-                                $product_shipping['product_id']         = $product_data->id;
-                                $product_shipping['shipping_method_id'] = $val_shipping;
-                                $product_shipping['created_at']         = date('Y-m-d H:i:s');
-                                $product_shipping['updated_at']         = date('Y-m-d H:i:s');
-                                ProductShipping::create($product_shipping);
-                                unset($product_shipping);
-                            }
-                        }
-
-                        //=== Related Products ===//
-                        $related_product = [];
-                        if(isset($request->product_ids) && count($request->product_ids)>0){
-                            foreach ( $request->product_ids as $key_product => $val_product ) {
-                                $related_product['product_id']         = $product_data->id;
-                                $related_product['related_product_id'] = $val_product;
-                                $related_product['created_at']         = date('Y-m-d H:i:s');
-                                $related_product['updated_at']         = date('Y-m-d H:i:s');
-                                RelatedProduct::create($related_product);
-                                unset($related_product);
-                            }
-                        }
-
-                        //=== Related city group add ===//
-                        $city_group = [];
-                        if( isset($request->city_group_ids) && count($request->city_group_ids)>0 ) {
-                            foreach ( $request->city_group_ids as $key_city => $val_city ) {
-                                $city_group['product_id'] = $product_data->id;
-                                $city_group['city_groups_id'] = $val_city;
-                                $city_group['created_at'] = date('Y-m-d H:i:s');
-                                $city_group['updated_at'] = date('Y-m-d H:i:s');
-                                ProductRelatedCityGroup::create($city_group);
-                                unset($city_group);
-                                 //=== Available Cities ===//
-                                $get_city_from_group = CityGroupRelation::where('city_group_id',$val_city)->pluck('id','cities_id');
-
-                                if(!empty($get_city_from_group) && count($get_city_from_group)>0){
-                                    $related_cities = [];
-                                    foreach ($get_city_from_group as $city_key => $city_id) {
-                                        $related_cities['product_id'] = $product_data->id;
-                                        $related_cities['cities_id']  = $city_id;
-                                        $related_cities['created_at'] = date('Y-m-d H:i:s');
-                                        $related_cities['updated_at'] = date('Y-m-d H:i:s');
-                                        RelatedCity::create($related_cities);
-                                        unset($related_cities);
-                                    }
-                                }
-
-                            }
-                        }
-
-                        //=== Available Gift Addon Groups ===//
-                        $related_gift_addon_groups = [];
-                        if(isset($request->gift_addon_group_ids) && count($request->gift_addon_group_ids)>0){
-                            foreach ( $request->gift_addon_group_ids as $key => $val ) {
-                                $related_gift_addon_groups['product_id']          = $product_data->id;
-                                $related_gift_addon_groups['gift_addon_group_id'] = $val;
-                                $related_gift_addon_groups['created_at']          = date('Y-m-d H:i:s');
-                                $related_gift_addon_groups['updated_at']          = date('Y-m-d H:i:s');
-                                ProductRelatedGiftAddonGroup::create($related_gift_addon_groups);
-                                unset($related_gift_addon_groups);
-                            }
-                        }
-
-                        //=== Available Restricted Pincode Groups ===//
-                        $related_restricted_pincode_groups = [];
-                        if(isset($request->pincode_group_ids) && count($request->pincode_group_ids)>0){
-                            foreach ( $request->pincode_group_ids as $key => $val ) {
-                                $related_restricted_pincode_groups['product_id']      = $product_data->id;
-                                $related_restricted_pincode_groups['pincode_group_id']= $val;
-                                $related_restricted_pincode_groups['created_at']      = date('Y-m-d H:i:s');
-                                $related_restricted_pincode_groups['updated_at']      = date('Y-m-d H:i:s');
-                                ProductRelatedRestrictedPincodeGroup::create($related_restricted_pincode_groups);
-                                unset($related_restricted_pincode_groups);
-                            }
-                        }
-
-                        if(isset($request->has_attribute) && $request->has_attribute == 'YES'){
-                            if((isset($request->attr_title) && count($request->attr_title)>0) && (isset($request->attr_price) && count($request->attr_price)>0)){
-                                foreach ($request->attr_title as $attr_key => $attribute_title) {
-                                    $product_attribute = [];
-                                    $product_attribute['product_id'] = $product_data->id;
-                                    $product_attribute['title']      = $attribute_title;
-                                    $product_attribute['price']      = $request->attr_price[$attr_key];
-                                    $product_attribute['sl_no']      = $attr_key;
-                                    $product_attribute['created_by'] = Auth::guard('admin')->user()->id;
-                                    ProductAttribute::create($product_attribute);
-
-                                    if( $attr_key == 0 ){
-                                        Product::where('id',$product_data->id)->update(['sortby_price' => $request->attr_price[$attr_key]]);
-                                    }
-                                }
-                            }
-                        }
-
+                        $request->session()->flash('alert-success', 'Product added successfully');
+                        return redirect()->route('admin.product.list');
                     }else{
                         $request->session()->flash('alert-danger', 'Sorry! There was an unexpected error. Try again!');
                         return redirect()->back()->with($request->except(['_method', '_token']));
                     }
                 }
-            }else if(isset($request->occasions_id) && count($request->occasions_id)>0){
-                    foreach ($request->occasions_id as $occasion_id) {
-                        $product_request = [];
-                        $product_request['occasions_id']        = $occasion_id;
-                        $product_request['product_name']        = $request->product_name;
-                        $product_request['has_attribute']       = $request->has_attribute;
-                        $product_request['description']         = $request->description;
-                        $product_request['delivery_information']= $request->delivery_information;
-                        $product_request['care_instruction']    = $request->care_instruction;
-                        $product_request['slug']                = Product::getUniqueSlug($request->product_name);
-                        //$product_request->sku                 = $request->description;
-                        $product_request['created_by']          = Auth::guard('admin')->user()->id;
-
-                        if(isset($request->has_attribute) && $request->has_attribute == 'NO') {
-                            $product_request['price']        = $request->price;
-                            $product_request['sortby_price'] = $request->price;
-                        }
-
-                        //Delivery delay section
-                        if((isset($request->delivery_delay_days) && $request->delivery_delay_days>0)){
-                            $delivery_delay_days      = $request->delivery_delay_days;
-                            $delivery_delay_days_from = date('Y-m-d',strtotime(date('Y-m-d').'+ '.$delivery_delay_days.' days'));
-                            $product_request['delivery_delay_days']      = $delivery_delay_days;
-                            $product_request['delivery_delay_days_from'] = $delivery_delay_days_from;
-                        }else{
-                            $product_request['delivery_delay_days']      = 0;
-                            $product_request['delivery_delay_days_from'] = date('Y-m-d');
-                        }
-
-                        $product_request['alt_key']          = $request->alt_key;
-                        $product_request['meta_title']       = $request->meta_title;
-                        $product_request['meta_keyword']     = $request->meta_keyword;
-                        $product_request['meta_description'] = $request->meta_description;
-
-                        if($product_data = Product::create($product_request)){
-                            /* For sku calculation */
-                            $sku_generate_array = array();
-                            $sku_generate_array['product_type'] = 'A';
-                            $sku_generate_array['delivery_by']  = 'H';
-                            $sku_generate_array['product_id']   = $product_data->id;
-                            $sku_generate_array['country_id']   = 99;
-                            $sku_generate_array['occasion_id']  = $occasion_id;
-                            $sku = @$this->generate_sku($sku_generate_array);
-
-                            /* Update product sku */
-                            Product::where('id',$product_data->id)->update(['sku'=>$sku]);
-
-                            //=== Extra addon set ===//
-                            if(isset($request->product_extras_id) && count($request->product_extras_id)>0){
-                                foreach ($request->product_extras_id as $product_extras_id) {
-                                    $product_extra = [];
-                                    $product_extra['product_id']                   = $product_data->id;
-                                    $product_extra['product_extra_addon_group_id'] = $product_extras_id;
-                                    AssignProductExtra::create($product_extra);
-                                }
-                            }
-
-                            //=== Product Shipping ===//
-                            $product_shipping = [];
-                            if(isset($request->shipping_methods) && count($request->shipping_methods)>0){
-                                foreach ($request->shipping_methods as $key_shipping => $val_shipping) {
-                                    $product_shipping['product_id']         = $product_data->id;
-                                    $product_shipping['shipping_method_id'] = $val_shipping;
-                                    $product_shipping['created_at']         = date('Y-m-d H:i:s');
-                                    $product_shipping['updated_at']         = date('Y-m-d H:i:s');
-                                    ProductShipping::create($product_shipping);
-                                    unset($product_shipping);
-                                }
-                            }
-
-                            //=== Related Products ===//
-                            $related_product = [];
-                            if(isset($request->product_ids) && count($request->product_ids)>0){
-                                foreach ( $request->product_ids as $key_product => $val_product ) {
-                                    $related_product['product_id']         = $product_data->id;
-                                    $related_product['related_product_id'] = $val_product;
-                                    $related_product['created_at']         = date('Y-m-d H:i:s');
-                                    $related_product['updated_at']         = date('Y-m-d H:i:s');
-                                    RelatedProduct::create($related_product);
-                                    unset($related_product);
-                                }
-                            }
-
-                            //=== Related city group add ===//
-                            $city_group = [];
-                            if( isset($request->city_group_ids) && count($request->city_group_ids)>0 ) {
-                                foreach ( $request->city_group_ids as $key_city => $val_city ) {
-                                    $city_group['product_id'] = $product_data->id;
-                                    $city_group['city_groups_id'] = $val_city;
-                                    $city_group['created_at'] = date('Y-m-d H:i:s');
-                                    $city_group['updated_at'] = date('Y-m-d H:i:s');
-                                    ProductRelatedCityGroup::create($city_group);
-                                    unset($city_group);
-                                     //=== Available Cities ===//
-                                    $get_city_from_group = CityGroupRelation::where('city_group_id',$val_city)->pluck('id','cities_id');
-
-                                    if(!empty($get_city_from_group) && count($get_city_from_group)>0){
-                                        $related_cities = [];
-                                        foreach ($get_city_from_group as $city_key => $city_id) {
-                                            $related_cities['product_id'] = $product_data->id;
-                                            $related_cities['cities_id']  = $city_id;
-                                            $related_cities['created_at'] = date('Y-m-d H:i:s');
-                                            $related_cities['updated_at'] = date('Y-m-d H:i:s');
-                                            RelatedCity::create($related_cities);
-                                            unset($related_cities);
-                                        }
-                                    }
-
-                                }
-                            }
-
-                            //=== Available Gift Addon Groups ===//
-                            $related_gift_addon_groups = [];
-                            if(isset($request->gift_addon_group_ids) && count($request->gift_addon_group_ids)>0){
-                                foreach ( $request->gift_addon_group_ids as $key => $val ) {
-                                    $related_gift_addon_groups['product_id']          = $product_data->id;
-                                    $related_gift_addon_groups['gift_addon_group_id'] = $val;
-                                    $related_gift_addon_groups['created_at']          = date('Y-m-d H:i:s');
-                                    $related_gift_addon_groups['updated_at']          = date('Y-m-d H:i:s');
-                                    ProductRelatedGiftAddonGroup::create($related_gift_addon_groups);
-                                    unset($related_gift_addon_groups);
-                                }
-                            }
-
-                            //=== Available Restricted Pincode Groups ===//
-                            $related_restricted_pincode_groups = [];
-                            if(isset($request->pincode_group_ids) && count($request->pincode_group_ids)>0){
-                                foreach ( $request->pincode_group_ids as $key => $val ) {
-                                    $related_restricted_pincode_groups['product_id']          = $product_data->id;
-                                    $related_restricted_pincode_groups['pincode_group_id'] = $val;
-                                    $related_restricted_pincode_groups['created_at']          = date('Y-m-d H:i:s');
-                                    $related_restricted_pincode_groups['updated_at']          = date('Y-m-d H:i:s');
-                                    ProductRelatedRestrictedPincodeGroup::create($related_restricted_pincode_groups);
-                                    unset($related_restricted_pincode_groups);
-                                }
-                            }
-
-                            if(isset($request->has_attribute) && $request->has_attribute == 'YES'){
-                                if((isset($request->attr_title) && count($request->attr_title)>0) && (isset($request->attr_price) && count($request->attr_price)>0)){
-                                    foreach ($request->attr_title as $attr_key => $attribute_title) {
-                                        $product_attribute = [];
-                                        $product_attribute['product_id'] = $product_data->id;
-                                        $product_attribute['title']      = $attribute_title;
-                                        $product_attribute['price']      = $request->attr_price[$attr_key];
-                                        $product_attribute['sl_no']      = $attr_key;
-                                        $product_attribute['created_by'] = Auth::guard('admin')->user()->id;
-                                        ProductAttribute::create($product_attribute);
-
-                                        if( $attr_key == 0 ){
-                                            Product::where('id',$product_data->id)->update(['sortby_price' => $request->attr_price[$attr_key]]);
-                                        }
-                                    }
-                                }
-                            }
-
-                        }else{
-                            $request->session()->flash('alert-danger', 'Sorry! There was an unexpected error. Try again!');
-                            return redirect()->back()->with($request->except(['_method', '_token']));
-                        }
-                    }
-            }else{
-                $request->session()->flash('alert-danger', 'Sorry! There was an unexpected error. Try again!');
-                return redirect()->back()->with($request->except(['_method', '_token']));
             }
-
-            if(isset($product_data->id) && $product_data->id >0){
+			
+			if(isset($product_data->id) && $product_data->id >0){
                 $request->session()->flash('alert-success', 'Product successfully added.');
                 return redirect()->route('admin.product.list');
             }
 
         }
 
-        $delivery_options = DeliveryOption::where('is_block','N')->pluck('title','id');
-        $tax_classes      = TaxClass::where('is_block','N')->select('id','title','amount')->get();
-
-        return view('admin.product.add', ['products' => $products,'category_list'=>$category_list,'occasions_list'=>$occasions_list,'product_extra_addon_groups'=>$product_extra_addon_groups,'delivery_options'=>$delivery_options,'tax_classes'=>$tax_classes,'shipping_methods'=>$shipping_methods,'product_list'=>$product_list,'city_list'=>$city_list, 'gift_addon_group_list'=>$gift_addon_group_list, 'pincode_group_list'=>$pincode_group_list]);
+		$product_list = Product::where([['status','A'],['is_deleted','N']])->orderBy('id','desc')->pluck('product_name','id');
+        return view('admin.product.add', ['products' => $products, 'product_list' => $product_list]);
     }
 
     /**

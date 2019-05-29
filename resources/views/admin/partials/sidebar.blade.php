@@ -29,9 +29,6 @@
 				<li class="nav-item @if (Route::current()->getName() == 'admin.product.add') active @endif">
 					<a class="nav-link" href="{{ route('admin.product.add') }}"> Add </a>
 				</li>
-				<li class="nav-item @if (Route::current()->getName() == 'admin.product.upload_product') active @endif">
-					<a class="nav-link" href="{{ route('admin.product.upload_product') }}"> Upload Product </a>
-				</li>
 			</ul>
 		</div>
 	</li>

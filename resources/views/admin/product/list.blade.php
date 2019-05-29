@@ -51,13 +51,7 @@
 			                	{!! CustomPaginator::sort('product_name', 'Name', ['direction' => true]) !!}
 			                </th>
 			                <th class="sortStyle">
-			                	SKU
-			                </th>
-			                <th class="sortStyle">
-			                	Category/Occasion
-			                </th>
-			                <th class="sortStyle">
-			                	Attribute/Price
+			                	Price
 			                </th>
 			                <th class="sortStyle">
 			                	{!! CustomPaginator::sort('created_at', 'Created') !!}
@@ -88,34 +82,7 @@
 								@endif
 								</td>
 								<td>{{ $product->product_name }}</td>
-								<td>{{ $product->sku }}</td>
-								<?php /*
-								<td>
-								@if ( $product->delivery_option != null )
-									{{ $product->delivery_option['title'] }}
-								@else
-									{{ 'NA' }}
-								@endif
-								</td>
-								*/ ?>
-								<td>
-									@if(isset($product->category->id) && $product->category->id >0)
-										Category: {{ $product->category->taxonomy->title }}
-									@elseif(isset($product->occasion->id) && $product->occasion->id >0)
-										Occasion: {{ $product->occasion->taxonomy->title }}
-									@endif
-								</td>
-								<td>
-									@if($product->has_attribute == 'NO')
-										{!! config('global.currency').' <b>'.$product->price.'<b>' !!}
-									@else
-										@if(count($product->product_attribute)>0)
-											@foreach($product->product_attribute as $attribute)
-												<b>{{$attribute->title}}</b>&nbsp; {!! config('global.currency').' <b>'.$attribute->price.'<b>' !!} <br>
-											@endforeach
-										@endif
-									@endif
-								</td>
+								<td>{{ $product->price }}</td>
 								<td>{{ date('d/m/Y' , strtotime($product->created_at)) }}</td>
 								<td>
 									<label class="badge @if($product->status == 'A') badge-success @elseif($product->status == 'I') badge-danger @endif">
