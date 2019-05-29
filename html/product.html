@@ -6,9 +6,6 @@
     <link rel="prefetch" as="style" onload="this.rel = 'stylesheet'" href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400i,700">
     <style>
     body.clicked{position:fixed;width:100%;height:100%}body.clicked:before{background:#fff;z-index:999}body.clicked:after{width:100px;height:100px;margin:-50px 0 0 -50px;z-index:999}.loader.clicked{position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000}.loader.clicked:before{-webkit-border-radius:0;border-radius:0;background:rgba(0,0,0,.8)}.loader.clicked:after{width:70px;height:70px;margin:-120px 0 0 -35px;border-color:#fff transparent #fff #fff}.noloader.loader.clicked:after{display:none}.loader.clicked>div{position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);font-size:18px;line-height:35px;color:#fff;z-index:1;margin:40px 0 0;padding:30px;width:100%;text-align:center}.loader.clicked>div span{text-transform:uppercase;margin-top:20px}.clicked{position:relative;pointer-events:none}.clicked:after,.clicked:before{position:absolute;content:"";display:block;z-index:1}.clicked:before{top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,.8);-webkit-border-radius:0;border-radius:0;opacity:1}.btn.clicked:before,[type=submit].clicked:before,[type=reset].clicked:before,button.clicked:before{-webkit-border-radius:30px;border-radius:30px}.clicked:after{top:50%;left:50%;margin:-12px 0 0 -12px;width:24px;height:24px;border:3px solid #3799FE;border-right-color:transparent;-webkit-border-radius:50%;border-radius:50%;-webkit-animation-duration:.75s;-moz-animation-duration:.75s;animation-duration:.75s;-webkit-animation-iteration-count:infinite;-moz-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-name:rotate-forever;-moz-animation-name:rotate-forever;animation-name:rotate-forever;-webkit-animation-timing-function:linear;-moz-animation-timing-function:linear;animation-timing-function:linear}@-webkit-keyframes rotate-forever{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-o-transform:rotate(360deg);transform:rotate(360deg)}}@-moz-keyframes rotate-forever{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-o-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes rotate-forever{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-o-transform:rotate(360deg);transform:rotate(360deg)}}
-
-/* .common_banner,.container,.header_main,.nav_wrapper{position:relative}body{margin:0;padding:0}*,:after,:before{box-sizing:border-box}.responsive_nav,.scrollup{display:none}.header_main{top:0;left:0;right:0;z-index:5;border-top:5px solid #262525;border-bottom:5px solid #22942a;height:162px}.homebanner{height:450px;min-height:450px;overflow:hidden;background:#ccc}.container{width:1170px;padding:0 15px;margin:0 auto}.logo{width:128px;float:left;padding:10px 0}.hright{float:right;text-align:right;height:152px}.htop{color:#fff;background:#171817;padding:0 0 5px;float:right;height:35px}.hmiddle{padding:20px 0;clear:both;height:76px}.nav_wrapper{float:left;background:#22942a;padding:5px 0 0 30px;height:41px}
-@media only screen and (max-width: 991px) {.homebanner{height: auto;min-height:inherit}} */
     </style>
     
     <meta charset="UTF-8">
@@ -21,6 +18,8 @@
     <meta name="Robots" content="index, follow"/>
     <link rel="canonical" href="#" />
     <meta name="theme-color" content="#0084d9">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+
     <link rel="stylesheet" type="text/css" href="css/plugins.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
@@ -36,213 +35,296 @@
         <section class="header_main">
             <div class="htop">
                 <div class="container">
-                    <div class="logo">
-                        <a aria-label="Manlice" href="index.html" style="background-image:url(images/logo.png);"></a>
+                    <div class="tt_fleft">
+                        <nav class="nav_menu">
+                            <ul>
+                                <li><a href="about.html"><span>About Us</span></a></li>
+                                <li><a href="contact.html"><span>Contact Us</span></a></li>
+                            </ul>
+                        </nav>
+                        <div class="account_section">
+                            <a href="login.html"><i class="fa fa-sign-in"></i> <span>Login / Register</span></a>
+                        </div>
+                        <div class="tt_hcart">
+                            <a href="cart.html"><i class="fa fa-shopping-cart"></i> <span>0 Items - $0.00</span></a>
+                        </div>
+                        <div class="tt_language">
+                            <span><i class="fa fa-globe"></i> English</span>
+                            <ul>
+                                <li class="active"><span class="tt_flag"><img src="images/blank.gif" class="flag flag-en" alt=""> English</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-es" alt=""> Español</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-fr" alt=""> Français</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-de" alt=""> Deutsch</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-pt" alt=""> Português</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-ru" alt=""> Русский</span></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="hright">
-                        <div class="hcntct">
-                            <i class="fa fa-mobile" aria-hidden="true"></i> CALL US FREE: +1 555 555 55
+                    <div class="tt_fright">
+                        <div class="social">
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_rss">
+                                <i class="fa fa-rss"></i>
+                                <span>RSS Text</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_email">
+                                <i class="fa fa-envelope"></i>
+                                <span>Contact Us</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_twitter">
+                                <i class="fa fa-twitter"></i>
+                                <span>Follow Us On Twitter</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_facebook">
+                                <i class="fa fa-facebook"></i>
+                                <span>Follow Us On Facebook</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_flicker">
+                                <i class="fa fa-flickr"></i>
+                                <span>Follow Us On Flicker</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_google-plus">
+                                <i class="fa fa-google-plus"></i>
+                                <span>Follow Us On Google+</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="hmdl">
+                <div class="container">
+                    <div class="logo">
+                        <a href="index.html" aria-label="Manlice" style="background-image:url(images/logo.png);"></a>
+                    </div>
+                    <div class="hinfo">
+                        <ul>
+                            <li><i class="fa fa-mobile" aria-hidden="true"></i> <div>CALL US FREE: +1 555 555 55</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <div class="hbtm">
                 <div class="container">
                     <div class="nav_wrapper">
                         <nav class="nav_menu">
                             <ul class="clearfix">
                                 <li><a href="index.html">Home<span>go to home</span></a></li>
-                                <li><a href="#">About<span>go to home</span></a></li>
-                                <li><a href="product.html">Product<span>go to home</span></a>
-                                    <span class="subarrow"></span>
+                                <li><a href="about.html">About<span>discover</span></a></li>
+                                <li class="active"><a href="product.html">Product<span>the showcase</span></a>
+                                    <span class="fa fa-angle-down subarrow"></span>
                                     <ul class="sub-menu">
-                                        <li><a href="#">Product1</a></li>
-                                        <li><a href="#">Product2</a></li>
+                                        <li><a href="product_details.html">Product 1</a></li>
+                                        <li><a href="product_details.html">Product 2</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Service<span>go to home</span></a></li>
-                                <li><a href="#">News<span>go to home</span></a></li>
-                                <li><a href="#">Contact Us<span>go to home</span></a></li>
+                                <li><a href="service.html">Service<span>we offer</span></a></li>
+                                <li><a href="news.html">News<span>latest news</span></a></li>
+                                <li><a href="contact.html">Contact Us<span>get in touch</span></a></li>
                             </ul>
                         </nav>
+                    
+                        <span class="responsive_btn"><span></span></span>
                     </div>
+
                     <div class="hsearch">
-                        <input type="text" placeholder="Search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                        <form>
+                            <input type="text" placeholder="Search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
                     </div>
-                    <span class="responsive_btn"><span></span></span>  
                 </div>
             </div>
         </section>
-        <section class="common_banner homebanner">
-            <figure class="innerbanner">
-                <img class="lazy" src="images/blank.png" data-src="images/sample/inner_banner.jpg" alt="">
-                <div class="container">
-                    <div class="heading">
-                        Our Products
-                    </div>
-                    <div class="breadcrumb">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                            <li>Our Products</li>
-                        </ul>
+
+        <section class="common_banner innerbanner">
+            <div class="bannerbox" style="background-image: url(images/sample/inner_banner.jpg);">
+                <div class="bannertext">
+                    <div class="container">
+                        <div class="heading">Our Products</div>
+                        <div class="breadcrumb">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                                <li>Our Products</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </figure>
+            </div>
         </section>
     </header>
     
     <main class="mainContainer ">
-       <section class="section inner_pro_list">
-            <div class="product_list">
-                <div class="container">
+       <section class="section">
+            <div class="container">
+                <div class="product_list">
                     <ul class="row ul">
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
@@ -251,6 +333,7 @@
                 </div>
             </div>
        </section>
+
        <section class="section purchase_section">
             <div class="container">
                 <h2 class="heading">MORBI BIBENDUM LIBERO SEMPER MAGNA IMPERDIET CONSEQUAT. CRAS ALIQUET LOREM EUISMOD!</h2>
@@ -260,6 +343,7 @@
                 </div>
             </div>
        </section>
+
        <section class="section our_detail_sec">
            <div class="container">
                <div class="row">
@@ -277,25 +361,25 @@
                         <div class="cntct_details">
                             <ul class="ul">
                                 <li>
-                                    <div class="sk_comm">
+                                    <div class="tt_comm">
                                         <i class="fa fa-home"></i>
                                         <span>63739 street lorem ipsum Country</span>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="sk_comm">
+                                    <div class="tt_comm">
                                         <i class="fa fa-phone"></i>
                                         <span>+1 123 312 32 23</span>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="sk_comm">
+                                    <div class="tt_comm">
                                         <i class="fa fa-print"></i>
                                         <span>+1 123 312 32 23</span>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="sk_comm">
+                                    <div class="tt_comm">
                                         <i class="fa fa-life-ring"></i>
                                         <span><a href="mailto:support@company.com">support@company.com</a></span>
                                     </div>
@@ -343,47 +427,49 @@
 
     <footer class="mainFooter">
         <div class="container">
-            <div class="footer_left">
-                <div class="fnav">
+            <section class="tt_fleft">
+                <nav class="fnav">
                     <ul>
                         <li><a href="#">Contact Us</a></li>
                         <li><a href="#">About Us</a></li>
                     </ul>
-                </div>
+                </nav>
                 <div class="copyright">
                     <p>Copyright © 2017 <a href="#">RT-Themes</a></p>
                 </div>
-            </div>
-            <div class="footer_right">
+            </section>
+
+            <section class="tt_fright">
                 <div class="social">
-                    <a href="#" class="sk_rss">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_rss">
                         <i class="fa fa-rss"></i>
                         <span>RSS Text</span>
                     </a>
-                    <a href="#" class="sk_email">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_email">
                         <i class="fa fa-envelope"></i>
                         <span>Contact Us</span>
                     </a>
-                    <a href="#" class="sk_twitter">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_twitter">
                         <i class="fa fa-twitter"></i>
                         <span>Follow Us On Twitter</span>
                     </a>
-                    <a href="#" class="sk_facebook">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_facebook">
                         <i class="fa fa-facebook"></i>
                         <span>Follow Us On Facebook</span>
                     </a>
-                    <a href="#" class="sk_flicker">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_flicker">
                         <i class="fa fa-flickr"></i>
                         <span>Follow Us On Flicker</span>
                     </a>
-                    <a href="#" class="sk_google-plus">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_google-plus">
                         <i class="fa fa-google-plus"></i>
                         <span>Follow Us On Google+</span>
                     </a>
                 </div>
-            </div>
+            </section>
         </div>
     </footer>
+    
 	<script type="text/javascript" src="js/plugins.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
 </body>

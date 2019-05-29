@@ -91,35 +91,6 @@ $(function () {
 	/*-------------------------------------STICKY_SIDEBAR--------------------------------*/
 	$('.stickySidebar, .stickyContent').theiaStickySidebar({additionalMarginTop: 60});
 
-	/*-------------------------------------FLEX SLIDER---------------------------------*/
-	
-		jQuery(window).on('load', function() {
-			jQuery("#slider-product-name-5_carousel").flexslider({
-				animation: "slide",
-				controlNav: false, 
-				itemWidth: 80, 
-				itemMargin: 5,
-				animationLoop: false,
-				slideshow: true, 
-				slideshowSpeed:2000, // slider show speed
-				controlsContainer: "#slider-product-name-5_carousel .flex-nav-container",
-				asNavFor: "#slider-product-name-5",  // slider ID                                         
-				prevText: "←", 
-				nextText: "→"  
-			});
-
-			jQuery("#slider-product-name-5").flexslider({
-				animation: "slide",
-				controlNav: false,
-				animationLoop: false,
-				slideshowSpeed:8000, // carousel show speed
-				slideshow: true,
-				smoothHeight: true,
-				directionNav: false,
-				sync: "#slider-product-name-5_carousel", // carousel ID - thumbnail holder div
-			}); 
-		});  
-
 	/*-------------------------------------NUMBERS_ONLY----------------------------------*/
     $('.numbersOnly').on("keyup", function () {
         this.value = this.value.replace(/[^0-9\,.]/g, '');
@@ -141,7 +112,7 @@ $(function () {
 	$(".homeslider").owlCarousel({ 
 		items: 1,
 		loop: true,
-		autoplay: true,
+		autoplay: false,
 		autoplayHoverPause: true,
 		autoplayTimeout: 3000,
 		smartSpeed: 1000,
@@ -163,8 +134,8 @@ $(function () {
 		
 	});
 
-	/*-------------------------------------PRODUCT_SLIDER--------------------------------*/
-	$(".testi_slider").owlCarousel({
+	/*-------------------------------------TESTIMONIAL_SLIDER----------------------------*/
+	$(".testimonial_list .owl-carousel").owlCarousel({
 		items: 1,
 		loop: true,
 		autoplay: true,
@@ -185,25 +156,26 @@ $(function () {
 			1600: { items: 1 }
 		}, 
 	});
-/*-------------------------------------FAQ--------------------------------*/
-	$(".sk_toggle .sk_box > .sk_ques").bind("click", function () {
+
+	/*-------------------------------------FAQ-------------------------------------------*/
+	$(".tt_toggle .tt_box > .tt_ques").bind("click", function () {
 		if ($(this).parent().hasClass('opened')) {
 			$(this).parent().siblings().removeClass('opened');
-			$(this).parent().siblings().children(".sk_ans").slideUp(300);
+			$(this).parent().siblings().children(".tt_ans").slideUp(300);
 			$(this).parent().removeClass('opened');
-			$(this).next('.sk_ans').slideUp(300);
+			$(this).next('.tt_ans').slideUp(300);
 			return false;
 		} else {
 			$(this).parent().siblings().removeClass('opened');
-			$(this).parent().siblings().children(".sk_ans").slideUp(300);
+			$(this).parent().siblings().children(".tt_ans").slideUp(300);
 			$(this).parent().addClass('opened');
-			$(this).next('.sk_ans').slideDown(300);
+			$(this).next('.tt_ans').slideDown(300);
 			return false;
 		}
 	})
 
-	/*-------------------------------------news_slider--------------------------------*/
-	$(".news_slider").owlCarousel({
+	/*-------------------------------------NEWS_SLIDER-----------------------------------*/
+	$(".news_list .owl-carousel").owlCarousel({
 		items: 1,
 		loop: true,
 		autoplay: true,
@@ -224,7 +196,34 @@ $(function () {
 			1600: { items: 1 }
 		}, 
 	});
-	
+});
+
+/*-------------------------------------FLEX SLIDER---------------------------------------*/
+$(window).on('load', function() {
+	$("#slider-product-name-5_carousel").flexslider({
+		animation: "slide",
+		controlNav: false, 
+		itemWidth: 80, 
+		itemMargin: 5,
+		animationLoop: false,
+		slideshow: true, 
+		slideshowSpeed:2000, // slider show speed
+		controlsContainer: "#slider-product-name-5_carousel .flex-nav-container",
+		asNavFor: "#slider-product-name-5",  // slider ID
+		prevText: "←", 
+		nextText: "→"  
+	});
+
+	$("#slider-product-name-5").flexslider({
+		animation: "slide",
+		controlNav: false,
+		animationLoop: false,
+		slideshowSpeed:8000, // carousel show speed
+		slideshow: true,
+		smoothHeight: true,
+		directionNav: false,
+		sync: "#slider-product-name-5_carousel", // carousel ID - thumbnail holder div
+	}); 
 });
 
 function lazy(){

@@ -6,9 +6,6 @@
     <link rel="prefetch" as="style" onload="this.rel = 'stylesheet'" href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400i,700">
     <style>
     body.clicked{position:fixed;width:100%;height:100%}body.clicked:before{background:#fff;z-index:999}body.clicked:after{width:100px;height:100px;margin:-50px 0 0 -50px;z-index:999}.loader.clicked{position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000}.loader.clicked:before{-webkit-border-radius:0;border-radius:0;background:rgba(0,0,0,.8)}.loader.clicked:after{width:70px;height:70px;margin:-120px 0 0 -35px;border-color:#fff transparent #fff #fff}.noloader.loader.clicked:after{display:none}.loader.clicked>div{position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);font-size:18px;line-height:35px;color:#fff;z-index:1;margin:40px 0 0;padding:30px;width:100%;text-align:center}.loader.clicked>div span{text-transform:uppercase;margin-top:20px}.clicked{position:relative;pointer-events:none}.clicked:after,.clicked:before{position:absolute;content:"";display:block;z-index:1}.clicked:before{top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,.8);-webkit-border-radius:0;border-radius:0;opacity:1}.btn.clicked:before,[type=submit].clicked:before,[type=reset].clicked:before,button.clicked:before{-webkit-border-radius:30px;border-radius:30px}.clicked:after{top:50%;left:50%;margin:-12px 0 0 -12px;width:24px;height:24px;border:3px solid #3799FE;border-right-color:transparent;-webkit-border-radius:50%;border-radius:50%;-webkit-animation-duration:.75s;-moz-animation-duration:.75s;animation-duration:.75s;-webkit-animation-iteration-count:infinite;-moz-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-name:rotate-forever;-moz-animation-name:rotate-forever;animation-name:rotate-forever;-webkit-animation-timing-function:linear;-moz-animation-timing-function:linear;animation-timing-function:linear}@-webkit-keyframes rotate-forever{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-o-transform:rotate(360deg);transform:rotate(360deg)}}@-moz-keyframes rotate-forever{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-o-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes rotate-forever{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-o-transform:rotate(360deg);transform:rotate(360deg)}}
-
-/* .common_banner,.container,.header_main,.nav_wrapper{position:relative}body{margin:0;padding:0}*,:after,:before{box-sizing:border-box}.responsive_nav,.scrollup{display:none}.header_main{top:0;left:0;right:0;z-index:5;border-top:5px solid #262525;border-bottom:5px solid #22942a;height:162px}.homebanner{height:450px;min-height:450px;overflow:hidden;background:#ccc}.container{width:1170px;padding:0 15px;margin:0 auto}.logo{width:128px;float:left;padding:10px 0}.hright{float:right;text-align:right;height:152px}.htop{color:#fff;background:#171817;padding:0 0 5px;float:right;height:35px}.hmiddle{padding:20px 0;clear:both;height:76px}.nav_wrapper{float:left;background:#22942a;padding:5px 0 0 30px;height:41px}
-@media only screen and (max-width: 991px) {.homebanner{height: auto;min-height:inherit}} */
     </style>
     
     <meta charset="UTF-8">
@@ -38,47 +35,110 @@
         <section class="header_main">
             <div class="htop">
                 <div class="container">
-                    <div class="logo">
-                        <a aria-label="Manlice" href="index.html" style="background-image:url(images/logo.png);"></a>
+                    <div class="tt_fleft">
+                        <nav class="nav_menu">
+                            <ul>
+                                <li><a href="about.html"><span>About Us</span></a></li>
+                                <li><a href="contact.html"><span>Contact Us</span></a></li>
+                            </ul>
+                        </nav>
+                        <div class="account_section">
+                            <a href="login.html"><i class="fa fa-sign-in"></i> <span>Login / Register</span></a>
+                        </div>
+                        <div class="tt_hcart">
+                            <a href="cart.html"><i class="fa fa-shopping-cart"></i> <span>0 Items - $0.00</span></a>
+                        </div>
+                        <div class="tt_language">
+                            <span><i class="fa fa-globe"></i> English</span>
+                            <ul>
+                                <li class="active"><span class="tt_flag"><img src="images/blank.gif" class="flag flag-en" alt=""> English</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-es" alt=""> Español</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-fr" alt=""> Français</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-de" alt=""> Deutsch</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-pt" alt=""> Português</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-ru" alt=""> Русский</span></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="hright">
-                        <div class="hcntct">
-                            <i class="fa fa-mobile" aria-hidden="true"></i> CALL US FREE: +1 555 555 55
+                    <div class="tt_fright">
+                        <div class="social">
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_rss">
+                                <i class="fa fa-rss"></i>
+                                <span>RSS Text</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_email">
+                                <i class="fa fa-envelope"></i>
+                                <span>Contact Us</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_twitter">
+                                <i class="fa fa-twitter"></i>
+                                <span>Follow Us On Twitter</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_facebook">
+                                <i class="fa fa-facebook"></i>
+                                <span>Follow Us On Facebook</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_flicker">
+                                <i class="fa fa-flickr"></i>
+                                <span>Follow Us On Flicker</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_google-plus">
+                                <i class="fa fa-google-plus"></i>
+                                <span>Follow Us On Google+</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="hmdl">
+                <div class="container">
+                    <div class="logo">
+                        <a href="index.html" aria-label="Manlice" style="background-image:url(images/logo.png);"></a>
+                    </div>
+                    <div class="hinfo">
+                        <ul>
+                            <li><i class="fa fa-mobile" aria-hidden="true"></i> <div>CALL US FREE: +1 555 555 55</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <div class="hbtm">
                 <div class="container">
                     <div class="nav_wrapper">
                         <nav class="nav_menu">
                             <ul class="clearfix">
-                                <li><a href="index.html">Home<span>go to home</span></a></li>
-                                <li><a href="#">About<span>go to home</span></a></li>
-                                <li><a href="product.html">Product<span>go to home</span></a>
-                                    <span class="subarrow"></span>
+                                <li class="active"><a href="index.html">Home<span>go to home</span></a></li>
+                                <li><a href="about.html">About<span>discover</span></a></li>
+                                <li><a href="product.html">Product<span>the showcase</span></a>
+                                    <span class="fa fa-angle-down subarrow"></span>
                                     <ul class="sub-menu">
-                                        <li><a href="#">Product1</a></li>
-                                        <li><a href="#">Product2</a></li>
+                                        <li><a href="product_details.html">Product 1</a></li>
+                                        <li><a href="product_details.html">Product 2</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Service<span>go to home</span></a></li>
-                                <li><a href="#">News<span>go to home</span></a></li>
-                                <li><a href="#">Contact Us<span>go to home</span></a></li>
+                                <li><a href="service.html">Service<span>we offer</span></a></li>
+                                <li><a href="news.html">News<span>latest news</span></a></li>
+                                <li><a href="contact.html">Contact Us<span>get in touch</span></a></li>
                             </ul>
                         </nav>
+                    
+                        <span class="responsive_btn"><span></span></span>
                     </div>
+
                     <div class="hsearch">
-                        <input type="text" placeholder="Search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                        <form>
+                            <input type="text" placeholder="Search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
                     </div>
-                    <span class="responsive_btn"><span></span></span>  
                 </div>
             </div>
         </section>
 
         <section class="common_banner homebanner">
-            <div class="homeslider owl-carousel owl-theme">
+            <div class="homeslider owl-carousel">
                 <div class="item">
                     <div class="bannerbox">
                         <figure class="bannerimg">
@@ -138,19 +198,19 @@
     </header>
     
     <main class="mainContainer">
-        <section class="section hook_newtheme">
+        <section class="section hook_theme">
             <div class="container">
-                <div class="heading_sec"><h2 class="heading">MEET THE <span>NEWEST</span> RT-THEME</h2></div>
+                <h2 class="heading">MEET THE <span>NEWEST</span> RT-THEME</h2>
                 <div class="theme_list">
                     <ul class="row ul">
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <div class="sk_figure_sec">
-                                    <figure class="sk_img">
+                            <div class="tt_box">
+                                <div class="tt_img">
+                                    <figure>
                                         <a href="#"><img class="lazy" src="images/blank.png" data-src="images/sample/theme1.jpg" alt=""></a>
                                     </figure>
                                 </div>
-                                <div class="sk_cntnt">
+                                <div class="tt_text">
                                     <h3 class="subheading"><a href="#">RESPONSIVE DESIGN</a></h3>
                                     <div class="editor_text">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod enim a metus adipiscing aliquam. Vestibulum in vestibulum lorem.</p>
@@ -159,13 +219,13 @@
                             </div>
                         </li>
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <div class="sk_figure_sec">
-                                    <figure class="sk_img">
+                            <div class="tt_box">
+                                <div class="tt_img">
+                                    <figure>
                                         <a href="#"><img class="lazy" src="images/blank.png" data-src="images/sample/theme1.jpg" alt=""></a>
                                     </figure>
                                 </div>
-                                <div class="sk_cntnt">
+                                <div class="tt_text">
                                     <h3 class="subheading"><a href="#">RESPONSIVE DESIGN</a></h3>
                                     <div class="editor_text">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod enim a metus adipiscing aliquam. Vestibulum in vestibulum lorem.</p>
@@ -174,13 +234,13 @@
                             </div>
                         </li>
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <div class="sk_figure_sec">
-                                    <figure class="sk_img">
+                            <div class="tt_box">
+                                <div class="tt_img">
+                                    <figure>
                                         <a href="#"><img class="lazy" src="images/blank.png" data-src="images/sample/theme1.jpg" alt=""></a>
                                     </figure>
                                 </div>
-                                <div class="sk_cntnt">
+                                <div class="tt_text">
                                     <h3 class="subheading"><a href="#">RESPONSIVE DESIGN</a></h3>
                                     <div class="editor_text">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod enim a metus adipiscing aliquam. Vestibulum in vestibulum lorem.</p>
@@ -189,13 +249,13 @@
                             </div>
                         </li>
                         <li class="col-sm-3">
-                            <div class="sk_box">
-                                <div class="sk_figure_sec">
-                                    <figure class="sk_img">
+                            <div class="tt_box">
+                                <div class="tt_img">
+                                    <figure>
                                         <a href="#"><img class="lazy" src="images/blank.png" data-src="images/sample/theme1.jpg" alt=""></a>
                                     </figure>
                                 </div>
-                                <div class="sk_cntnt">
+                                <div class="tt_text">
                                     <h3 class="subheading"><a href="#">RESPONSIVE DESIGN</a></h3>
                                     <div class="editor_text">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod enim a metus adipiscing aliquam. Vestibulum in vestibulum lorem.</p>
@@ -208,48 +268,50 @@
             </div>
         </section>
 
-        <section class="section hook_theme_feature">
+        <section class="section bg_gray hook_feature">
             <div class="container">
-                <div class="sk_content_wrap">
-                    <figure class="sk_img_right">
+                <div class="tt_content_wrap">
+                    <figure class="tt_img_right">
                         <img class="lazy" src="images/blank.png" data-src="images/sample/laptop.png" alt="">
                     </figure>
-                    <div class="sk_content animatedParent animateOnce">
+                    <div class="tt_content animatedParent animateOnce">
                         <h2 class="heading">AMAZING THEME FEATURES</h2>
-                        <ul class="ul clearfix">
-                            <li class="animated fadeInDownShort slowest">
-                                <figure class="sk_icon">
-                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                </figure>
-                                <div class="sk_text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida varius ornare.</p>
-                                </div>
-                            </li>
-                            <li class="animated fadeInDownShort slowest">
-                                <figure class="sk_icon">
-                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                </figure>
-                                <div class="sk_text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida varius ornare.</p>
-                                </div>
-                            </li>
-                            <li class="animated fadeInDownShort slowest">
-                                <figure class="sk_icon">
-                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                </figure>
-                                <div class="sk_text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida varius ornare.</p>
-                                </div>
-                            </li>
-                            <li class="animated fadeInDownShort slowest">
-                                <figure class="sk_icon">
-                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                </figure>
-                                <div class="sk_text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida varius ornare.</p>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="feature_list">
+                            <ul class="ul row">
+                                <li class="col-sm-6 animated fadeInDownShort slowest">
+                                    <div class="tt_box">
+                                        <figure class="tt_icon"><i class="fa fa-paper-plane" aria-hidden="true"></i></figure>
+                                        <div class="tt_text">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida varius ornare.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="col-sm-6 animated fadeInDownShort slowest">
+                                    <div class="tt_box">
+                                        <figure class="tt_icon"><i class="fa fa-cogs" aria-hidden="true"></i></figure>
+                                        <div class="tt_text">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida varius ornare.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="col-sm-6 animated fadeInDownShort slowest">
+                                    <div class="tt_box">
+                                        <figure class="tt_icon"><i class="fa fa-desktop" aria-hidden="true"></i></figure>
+                                        <div class="tt_text">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida varius ornare.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="col-sm-6 animated fadeInDownShort slowest">
+                                    <div class="tt_box">
+                                        <figure class="tt_icon"><i class="fa fa-calendar" aria-hidden="true"></i></figure>
+                                        <div class="tt_text">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis gravida varius ornare.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -260,81 +322,89 @@
                 <div class="product_list">
                     <ul class="row ul">
                         <li class="col-sm-4">
-                            <div class="product_head">
-                                <h3 class="heading">LATEST PRODUCTS</h3>
-                            </div>
+                            <div class="product_head"><h3 class="heading">LATEST PRODUCTS</h3></div>
                         </li>
                         <li class="col-sm-4">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro1.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="col-sm-4">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro2.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro2.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                        <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="col-sm-4">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro3.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro3.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="col-sm-4">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro4.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro4.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="col-sm-4">
-                            <div class="sk_box">
-                                <figure class="sk_img">
-                                    <img class="lazy" src="images/blank.png" data-src="images/sample/pro5.jpg" alt="">
+                            <div class="tt_box">
+                                <figure>
+                                    <a href="product_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/pro5.jpg" alt=""></a>
                                 </figure>
-                                <div class="pro_details">
-                                    <h3 class="subheading"><a href="#">Product With All Elements</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
-                                    <div class="price">
+                                <div class="tt_text">
+                                    <h3 class="subheading"><a href="product_details.html">Product With All Elements</a></h3>
+                                    <div class="tt_para">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum velit eleifend ornare nec ut erat.</p>
+                                    </div>
+                                    <div class="tt_price">
                                         <span class="old_price">$90</span>
-                                        <span>$75</span>
+                                        <span class="new_price">$75</span>
                                     </div>
                                 </div>
                             </div>
@@ -344,44 +414,46 @@
             </div>
         </section>
 
-        <section class="section hook_testimonial">
+        <section class="section bg_gray hook_testimonial">
             <div class="container">
-                <div class="testi_slider owl-carousel owl-theme">
-                    <div class="item">
-                        <div class="sk_box">
-                            <figure class="sk_img">
-                                <img class="owl-lazy" src="images/blank.png" data-src="images/sample/testi1.jpg" alt="">
-                            </figure>
-                            <div class="sk_text">
-                                <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
-                                <div class="testi_detail">
-                                    William Woe <span>CEO</span>
+                <div class="testimonial_list">
+                    <div class="owl-carousel">
+                        <div class="item">
+                            <div class="tt_box">
+                                <figure>
+                                    <img class="owl-lazy" src="images/blank.png" data-src="images/sample/testi1.jpg" alt="">
+                                </figure>
+                                <div class="tt_text">
+                                    <div class="tt_para">
+                                        <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+                                    </div>
+                                    <div class="subheading">William Woe <span>CEO</span></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="sk_box">
-                            <figure class="sk_img">
-                                <img class="owl-lazy" src="images/blank.png" data-src="images/sample/testi1.jpg" alt="">
-                            </figure>
-                            <div class="sk_text">
-                                <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
-                                <div class="testi_detail">
-                                    William Woe <span>CEO</span>
+                        <div class="item">
+                            <div class="tt_box">
+                                <figure>
+                                    <img class="owl-lazy" src="images/blank.png" data-src="images/sample/testi1.jpg" alt="">
+                                </figure>
+                                <div class="tt_text">
+                                    <div class="tt_para">
+                                        <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+                                    </div>
+                                    <div class="subheading">William Woe <span>CEO</span></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="sk_box">
-                            <figure class="sk_img">
-                                <img class="owl-lazy" src="images/blank.png" data-src="images/sample/testi1.jpg" alt="">
-                            </figure>
-                            <div class="sk_text">
-                                <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
-                                <div class="testi_detail">
-                                    William Woe <span>CEO</span>
+                        <div class="item">
+                            <div class="tt_box">
+                                <figure>
+                                    <img class="owl-lazy" src="images/blank.png" data-src="images/sample/testi1.jpg" alt="">
+                                </figure>
+                                <div class="tt_text">
+                                    <div class="tt_para">
+                                        <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+                                    </div>
+                                    <div class="subheading">William Woe <span>CEO</span></div>
                                 </div>
                             </div>
                         </div>
@@ -394,102 +466,105 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8">
-                        <div class="reason_to_buy">
-                            <h2 class="heading">TOP FIVE REASONS TO BUY RT-THEME 18</h2>
-                            <p>Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.</p>
-                        </div>
-                        <div class="toggle_sec animatedParent animateOnce">
-                            <div class="sk_toggle">
-                                <div class="sk_box animated fadeInDownShort slowest">
-                                    <div class="sk_ques">
-                                        <i class="fa fa-magic" aria-hidden="true"></i><h2 class="subheading">Template Builder</h2>
-                                    </div>
-                                    <div class="sk_ans">
-                                        <div class="editor_text">
-                                            <p>Template Builder is a built-in tool that lets you create custom page templates to use with your pages or posts. You are free to edit the default templates or create a new one as you wish. Creating custom templates has never been easy like this!</p>
-                                        </div>
+                        <h2 class="heading"><span><i class="fa fa-file-text-o"></i> TOP FIVE REASONS TO BUY RT-THEME 18</span></h2>
+                        <p>Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.</p>
+
+                        <div class="tt_toggle animatedParent animateOnce">
+                            <div class="tt_box animated fadeInDownShort slowest">
+                                <div class="tt_ques">
+                                    <i class="fa fa-magic" aria-hidden="true"></i><h2 class="subheading">Template Builder</h2>
+                                </div>
+                                <div class="tt_ans">
+                                    <div class="editor_text">
+                                        <p>Template Builder is a built-in tool that lets you create custom page templates to use with your pages or posts. You are free to edit the default templates or create a new one as you wish. Creating custom templates has never been easy like this!</p>
                                     </div>
                                 </div>
-                                <div class="sk_box animated fadeInDownShort slowest">
-                                    <div class="sk_ques">
-                                        <i class="fa fa-magic" aria-hidden="true"></i><h2 class="subheading">Template Builder</h2>
-                                    </div>
-                                    <div class="sk_ans">
-                                        <div class="editor_text">
-                                            <p>Template Builder is a built-in tool that lets you create custom page templates to use with your pages or posts. You are free to edit the default templates or create a new one as you wish. Creating custom templates has never been easy like this!</p>
-                                        </div>
+                            </div>
+                            <div class="tt_box animated fadeInDownShort slowest">
+                                <div class="tt_ques">
+                                    <i class="fa fa-magic" aria-hidden="true"></i><h2 class="subheading">Template Builder</h2>
+                                </div>
+                                <div class="tt_ans">
+                                    <div class="editor_text">
+                                        <p>Template Builder is a built-in tool that lets you create custom page templates to use with your pages or posts. You are free to edit the default templates or create a new one as you wish. Creating custom templates has never been easy like this!</p>
                                     </div>
                                 </div>
-                                <div class="sk_box animated fadeInDownShort slowest">
-                                    <div class="sk_ques">
-                                        <i class="fa fa-magic" aria-hidden="true"></i><h2 class="subheading">Template Builder</h2>
-                                    </div>
-                                    <div class="sk_ans">
-                                        <div class="editor_text">
-                                            <p>Template Builder is a built-in tool that lets you create custom page templates to use with your pages or posts. You are free to edit the default templates or create a new one as you wish. Creating custom templates has never been easy like this!</p>
-                                        </div>
+                            </div>
+                            <div class="tt_box animated fadeInDownShort slowest">
+                                <div class="tt_ques">
+                                    <i class="fa fa-magic" aria-hidden="true"></i><h2 class="subheading">Template Builder</h2>
+                                </div>
+                                <div class="tt_ans">
+                                    <div class="editor_text">
+                                        <p>Template Builder is a built-in tool that lets you create custom page templates to use with your pages or posts. You are free to edit the default templates or create a new one as you wish. Creating custom templates has never been easy like this!</p>
                                     </div>
                                 </div>
-                                <div class="sk_box animated fadeInDownShort slowest">
-                                    <div class="sk_ques">
-                                        <i class="fa fa-magic" aria-hidden="true"></i><h2 class="subheading">Template Builder</h2>
-                                    </div>
-                                    <div class="sk_ans">
-                                        <div class="editor_text">
-                                            <p>Template Builder is a built-in tool that lets you create custom page templates to use with your pages or posts. You are free to edit the default templates or create a new one as you wish. Creating custom templates has never been easy like this!</p>
-                                        </div>
+                            </div>
+                            <div class="tt_box animated fadeInDownShort slowest">
+                                <div class="tt_ques">
+                                    <i class="fa fa-magic" aria-hidden="true"></i><h2 class="subheading">Template Builder</h2>
+                                </div>
+                                <div class="tt_ans">
+                                    <div class="editor_text">
+                                        <p>Template Builder is a built-in tool that lets you create custom page templates to use with your pages or posts. You are free to edit the default templates or create a new one as you wish. Creating custom templates has never been easy like this!</p>
                                     </div>
                                 </div>
-                                <div class="sk_box animated fadeInDownShort slowest">
-                                    <div class="sk_ques">
-                                        <i class="fa fa-magic" aria-hidden="true"></i><h2 class="subheading">Template Builder</h2>
-                                    </div>
-                                    <div class="sk_ans">
-                                        <div class="editor_text">
-                                            <p>Template Builder is a built-in tool that lets you create custom page templates to use with your pages or posts. You are free to edit the default templates or create a new one as you wish. Creating custom templates has never been easy like this!</p>
-                                        </div>
+                            </div>
+                            <div class="tt_box animated fadeInDownShort slowest">
+                                <div class="tt_ques">
+                                    <i class="fa fa-magic" aria-hidden="true"></i><h2 class="subheading">Template Builder</h2>
+                                </div>
+                                <div class="tt_ans">
+                                    <div class="editor_text">
+                                        <p>Template Builder is a built-in tool that lets you create custom page templates to use with your pages or posts. You are free to edit the default templates or create a new one as you wish. Creating custom templates has never been easy like this!</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="latest_news">
-                            <h2 class="heading">LATEST NEW</h2>
-                            <div class="news_slider owl-carousel owl-theme">
+                        <h2 class="heading"><span><i class="fa fa-file-text-o"></i> LATEST NEW</span></h2>
+                        <div class="news_list">
+                            <div class="owl-carousel">
                                 <div class="item">
-                                    <div class="sk_box">
-                                        <figure class="sk_img">
-                                            <a href="#"><img class="owl-lazy" src="images/blank.png" data-src="images/sample/news1.jpg" alt=""></a>
-                                            <span class="news_dt">March 1, 2012</span>
+                                    <div class="tt_box">
+                                        <figure>
+                                            <a href="news_details.html"><img class="owl-lazy" src="images/blank.png" data-src="images/sample/news1.jpg" alt=""></a>
+                                            <span class="tt_date">March 1, 2012</span>
                                         </figure>
-                                        <div class="sk_text">
-                                            <h3 class="subheading"><a href="#">Video Post Type</a></h3>
-                                            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscip ..</p>
+                                        <div class="tt_text">
+                                            <h3 class="subheading"><a href="news_details.html">Video Post Type</a></h3>
+                                            <div class="tt_para">
+                                                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscip ..</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div class="sk_box">
-                                        <figure class="sk_img">
-                                            <img class="owl-lazy" src="images/blank.png" data-src="images/sample/news1.jpg" alt="">
-                                            <span class="news_dt">March 1, 2012</span>
+                                    <div class="tt_box">
+                                        <figure>
+                                            <a href="news_details.html"><img class="owl-lazy" src="images/blank.png" data-src="images/sample/news1.jpg" alt=""></a>
+                                            <span class="tt_date">March 1, 2012</span>
                                         </figure>
-                                        <div class="sk_text">
-                                            <h3 class="subheading">Video Post Type</h3>
-                                            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscip ..</p>
+                                        <div class="tt_text">
+                                            <h3 class="subheading"><a href="news_details.html">Video Post Type</a></h3>
+                                            <div class="tt_para">
+                                                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscip ..</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div class="sk_box">
-                                        <figure class="sk_img">
-                                            <img class="owl-lazy" src="images/blank.png" data-src="images/sample/news1.jpg" alt="">
-                                            <span class="news_dt">March 1, 2012</span>
+                                    <div class="tt_box">
+                                        <figure>
+                                            <a href="news_details.html"><img class="owl-lazy" src="images/blank.png" data-src="images/sample/news1.jpg" alt=""></a>
+                                            <span class="tt_date">March 1, 2012</span>
                                         </figure>
-                                        <div class="sk_text">
-                                            <h3 class="subheading">Video Post Type</h3>
-                                            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscip ..</p>
+                                        <div class="tt_text">
+                                            <h3 class="subheading"><a href="news_details.html">Video Post Type</a></h3>
+                                            <div class="tt_para">
+                                                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscip ..</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -500,16 +575,12 @@
             </div>
         </section>
 
-        <section class="section hook_display_banner">
+        <section class="section bg_gray hook_display">
             <div class="container">
-                <div class="row animatedParent animateOnce">
-                    <div class="col-sm-9">
-                        <h2 class="heading">You can use this module to display a banner box</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sodales vehicula odio quis lobortis. Aenean lacinia pulvinar hendrerit.</p>
-                    </div>
-                    <div class="col-sm-3">
-                        <a href="#" class="btn animated bounceIn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Purchase Now</a>
-                    </div>
+                <div class="editor_text animatedParent animateOnce">
+                    <h2 class="heading">You can use this module to display a banner box</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sodales vehicula odio quis lobortis. Aenean lacinia pulvinar hendrerit.</p>
+                    <a href="#" class="btn animated bounceIn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Purchase Now</a>
                 </div>
             </div>
         </section>
@@ -517,47 +588,49 @@
 
     <footer class="mainFooter">
         <div class="container">
-            <div class="footer_left">
-                <div class="fnav">
+            <section class="tt_fleft">
+                <nav class="fnav">
                     <ul>
                         <li><a href="#">Contact Us</a></li>
                         <li><a href="#">About Us</a></li>
                     </ul>
-                </div>
+                </nav>
                 <div class="copyright">
                     <p>Copyright © 2017 <a href="#">RT-Themes</a></p>
                 </div>
-            </div>
-            <div class="footer_right">
+            </section>
+
+            <section class="tt_fright">
                 <div class="social">
-                    <a href="#" class="sk_rss">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_rss">
                         <i class="fa fa-rss"></i>
                         <span>RSS Text</span>
                     </a>
-                    <a href="#" class="sk_email">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_email">
                         <i class="fa fa-envelope"></i>
                         <span>Contact Us</span>
                     </a>
-                    <a href="#" class="sk_twitter">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_twitter">
                         <i class="fa fa-twitter"></i>
                         <span>Follow Us On Twitter</span>
                     </a>
-                    <a href="#" class="sk_facebook">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_facebook">
                         <i class="fa fa-facebook"></i>
                         <span>Follow Us On Facebook</span>
                     </a>
-                    <a href="#" class="sk_flicker">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_flicker">
                         <i class="fa fa-flickr"></i>
                         <span>Follow Us On Flicker</span>
                     </a>
-                    <a href="#" class="sk_google-plus">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_google-plus">
                         <i class="fa fa-google-plus"></i>
                         <span>Follow Us On Google+</span>
                     </a>
                 </div>
-            </div>
+            </section>
         </div>
     </footer>
+
 	<script type="text/javascript" src="js/plugins.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
 </body>
