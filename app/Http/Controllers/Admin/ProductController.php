@@ -93,7 +93,8 @@ class ProductController extends CommonController
 
         }
 
-        return view('admin.product.add', ['products' => $products]);
+		$product_list = Product::where([['status','A'],['is_deleted','N']])->orderBy('id','desc')->pluck('product_name','id');
+        return view('admin.product.add', ['products' => $products, 'product_list' => $product_list]);
     }
 
     /**
