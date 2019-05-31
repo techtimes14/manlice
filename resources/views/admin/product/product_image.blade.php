@@ -130,7 +130,7 @@
             var time = dt.getTime();
             var file_name = file.name.split('.');
             var extension = file_name[1];
-           return 'flower-product-'+(Math.floor(Math.random() * 999999) + 100000)+time+'.'+extension;
+           return 'manlice-product-'+(Math.floor(Math.random() * 999999) + 100000)+time+'.'+extension;
         },
         acceptedFiles: ".jpeg,.jpg,.png,.gif",
         addRemoveLinks: true,
@@ -138,8 +138,7 @@
         removedfile: function(file)
         {
             var name = file.upload.filename;
-
-            $.ajaxSetup({
+			$.ajaxSetup({
               headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               }

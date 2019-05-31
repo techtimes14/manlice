@@ -60,8 +60,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], fu
 			Route::any('/delete_product_image/{id}/{product_id}', 'ProductController@delete_product_image')->name('delete_product_image');
 			Route::any('/delete_product_attribute', 'ProductController@delete_product_attribute')->name('delete_product_attribute');
 			Route::any('/change_status_product_attribute', 'ProductController@change_status_product_attribute')->name('change_status_product_attribute');
-			Route::get('/multifileupload/{id}', 'ProductController@multifileupload')->name('multifileupload');
-			Route::post('/store/{id}', 'ProductController@store')->name('store');
+			Route::any('/multifileupload/{id}', 'ProductController@multifileupload')->name('multifileupload');
+			Route::any('/store/{id}', 'ProductController@store')->name('store');
 			Route::any('/image_delete','ProductController@image_delete')->name('image_delete');
 			Route::any('/upload_product', 'ProductController@upload_product')->name('upload_product');
 			Route::any('/download_template', 'ProductController@download_template')->name('download_template');

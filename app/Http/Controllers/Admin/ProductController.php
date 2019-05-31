@@ -616,13 +616,13 @@ class ProductController extends CommonController
         $id = base64_decode($id);
 
         $products = Product::find($id);
-        return view('admin.product.product_image',['products'=>$products]);
+		return view('admin.product.product_image',['products'=>$products]);
     }
 
     public function store($product_id = null, Request $request){
         $product_id = $product_id;
-        $image = $request->file('file');
-        $filename = $image->getClientOriginalName();
+		$image = $request->file('file');
+		$filename = $image->getClientOriginalName();
         $location = public_path('/uploaded/product/'.$filename);
         if(Image::make($image)->resize(490,517)->save($location)){
             $product_image = [];
