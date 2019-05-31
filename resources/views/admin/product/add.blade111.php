@@ -29,10 +29,10 @@
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label for="title">{{ __('Product Title (English)') }}<span class="text-danger">&#042;</span></label>
-										{!! Form::text('product_name_en', null, array('required', 'class'=>'form-control', 'placeholder' => __('Enter Product Title'), 'id' => 'product_name_en')) !!}
-										@if ($errors->has('product_name_en'))
+										{!! Form::text('product_name', null, array('required', 'class'=>'form-control', 'placeholder' => __('Enter Product Title'), 'id' => 'product_name')) !!}
+										@if ($errors->has('product_name'))
 										<span class="error">
-											{{ $errors->first('product_name_en') }}
+											{{ $errors->first('product_name') }}
 										</span>
 										@endif
 									</div>
@@ -49,6 +49,7 @@
 									</div>
 								</div>
 							</div>
+							
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="form-group">
@@ -128,10 +129,10 @@
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label for="description">{{ __('Product Description (English)') }}<span class="text-danger">&#042;</span></label>
-										{!! Form::textarea('description_en', null, array('required', 'class'=>'form-control', 'placeholder' => __('Enter Product Description'), 'id' => 'description_en')) !!}
-										@if ($errors->has('description_en'))
+										{!! Form::textarea('description', null, array('required', 'class'=>'form-control', 'placeholder' => __('Enter Product Description'), 'id' => 'description')) !!}
+										@if ($errors->has('description'))
 										<span class="error">
-											{{ $errors->first('description_en') }}
+											{{ $errors->first('description') }}
 										</span>
 										@endif
 									</div>
@@ -281,13 +282,15 @@
 $(function() {
     // validate the comment form when it is submitted
     $("#productAdd").validate({
-    	rules: {
-            product_name_en: {
+    	ignore: [],
+		debug: true,
+		rules: {
+            product_name: {
                 required: true
             }
         },
         messages: {
-            product_name_en: {
+            product_name: {
                 required: "This field is required."
             }
         },
@@ -305,9 +308,9 @@ $(function() {
 </script>
 
 <script type="text/javascript">
-    if ($("#description_en").length) {
+    if ($("#description").length) {
 		tinymce.init({
-			selector: '#description_en',
+			selector: '#description',
 			height: 200,
 			theme: 'modern',
 			plugins: [

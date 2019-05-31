@@ -61,7 +61,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], fu
 			Route::any('/delete_product_attribute', 'ProductController@delete_product_attribute')->name('delete_product_attribute');
 			Route::any('/change_status_product_attribute', 'ProductController@change_status_product_attribute')->name('change_status_product_attribute');
 			Route::get('/multifileupload/{id}', 'ProductController@multifileupload')->name('multifileupload');
-			Route::any('/video/{id}', 'ProductController@video')->name('video');
 			Route::post('/store/{id}', 'ProductController@store')->name('store');
 			Route::any('/image_delete','ProductController@image_delete')->name('image_delete');
 			Route::any('/upload_product', 'ProductController@upload_product')->name('upload_product');
@@ -273,5 +272,5 @@ Route::group(['namespace' => 'Site', 'as' => 'site.'], function () {
 
 	/********* Note : Please add routes above this line. Below route must always be at the last of every routes. *********/
 
-	Route::get('/{query}', 'CheckController@index')->where('query','.+');
+	//Route::get('/{query}', 'CheckController@index')->where('query','.+');
 });

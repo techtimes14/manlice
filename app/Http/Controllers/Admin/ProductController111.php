@@ -3,10 +3,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Auth;
 use Image;
-use CommonHepler;
 use App\Model\Product;
-use App\Model\ProductLocale;
-use App\Model\RelatedProduct;
 use App\Model\ProductImage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -62,49 +59,46 @@ class ProductController extends CommonController
      * @return \Illuminate\Http\Response
      */
     public function add(Request $request) {
-		$products = new Product;
+        $products = new Product;
         if($request->isMethod('PUT')){
-			$product_request = [];
-			$product_request['product_name']    = $request->product_name_en;
-			$product_request['slug']            = Product::getUniqueSlug($request->product_name_en);                    
-			$product_request['price']        	= $request->price;
-			$product_request['special_price']	= $request->special_price;
-			$product_request['meta_title']      = $request->meta_title;
-			$product_request['meta_keyword']    = $request->meta_keyword;
-			$product_request['meta_description']= $request->meta_description;
+			dd($request);
 
-			if($product_data = Product::create($product_request)){				
-				if(count(CommonHepler::WEBSITE_LANGUAGES) > 0){
-					foreach(CommonHepler::WEBSITE_LANGUAGES as $keyLang => $valLang) {
-						$product_locale['product_id']   = $product_data->id;
-						$product_locale['lang_code'] 	= $keyLang;
-						$product_locale['product_name']	= $request['product_name_'.$keyLang];
-						$product_locale['description']	= $request['description_'.$keyLang];
-						ProductLocale::create($product_locale);
-						unset($product_locale);
-					}
-				}				
-				//=== Related Products ===//
-				$related_product = [];
-				if(isset($request->product_ids) && count($request->product_ids)>0){
-					foreach ( $request->product_ids as $key_product => $val_product ) {
-						$related_product['product_id']         = $product_data->id;
-						$related_product['related_product_id'] = $val_product;
-						$related_product['created_at']         = date('Y-m-d H:i:s');
-						$related_product['updated_at']         = date('Y-m-d H:i:s');
-						RelatedProduct::create($related_product);
-						unset($related_product);
-					}
-				}
-				
-				$request->session()->flash('alert-success', 'Product added successfully');
-				return redirect()->route('admin.product.list');
-			}else{
-				$request->session()->flash('alert-danger', 'Sorry! There was an unexpected error. Try again!');
-				return redirect()->back()->with($request->except(['_method', '_token']));
-			}
-			
-            
+            //=======For category product data=======//
+            if((isset($request->categories_id) && count($request->categories_id)>0)){
+                foreach( $request->categories_id as $cat_id ) {
+                    $product_request = [];
+                    $product_request['product_name']    = $request->product_name;
+                    $product_request['description']     = $request->description;
+                    $product_request['slug']            = Product::getUniqueSlug($request->product_name);                    
+                    $product_request['price']        	= $request->price;
+                    $product_request['special_price']   = $request->special_price;
+					$product_request['meta_title']       = $request->meta_title;
+                    $product_request['meta_keyword']     = $request->meta_keyword;
+                    $product_request['meta_description'] = $request->meta_description;
+
+                    if($product_data = Product::create($product_request)){
+						
+						//=== Related Products ===//
+                        $related_product = [];
+                        if(isset($request->product_ids) && count($request->product_ids)>0){
+                            foreach ( $request->product_ids as $key_product => $val_product ) {
+                                $related_product['product_id']         = $product_data->id;
+                                $related_product['related_product_id'] = $val_product;
+                                $related_product['created_at']         = date('Y-m-d H:i:s');
+                                $related_product['updated_at']         = date('Y-m-d H:i:s');
+                                RelatedProduct::create($related_product);
+                                unset($related_product);
+                            }
+                        }
+						
+                        $request->session()->flash('alert-success', 'Product added successfully');
+                        return redirect()->route('admin.product.list');
+                    }else{
+                        $request->session()->flash('alert-danger', 'Sorry! There was an unexpected error. Try again!');
+                        return redirect()->back()->with($request->except(['_method', '_token']));
+                    }
+                }
+            }
 			
 			if(isset($product_data->id) && $product_data->id >0){
                 $request->session()->flash('alert-success', 'Product successfully added.');
@@ -610,6 +604,12 @@ class ProductController extends CommonController
      * @return \Illuminate\Http\Response
      */
     public function multifileupload($id = null){
+        /* check permission */
+        if($this->checkPermission('product','multifileupload') == false){
+            $request->session()->flash('alert-danger', "You don't have permissions to access this page.");
+            return redirect()->route('admin.dashboard');
+            exit;
+        }
         if($id == null){
             return redirect()->route('admin.dashboard');
         }
