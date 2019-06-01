@@ -157,6 +157,52 @@ $(function () {
 		}, 
 	});
 
+	/*-------------------------------------NEWS_SLIDER-----------------------------------*/
+	$(".news_list .owl-carousel").owlCarousel({
+		items: 1,
+		loop: true,
+		autoplay: true,
+		autoplayTimeout: 3000,
+		smartSpeed: 1000,
+		margin: 30,
+		dots: false,
+		nav: true,
+		navElement: 'div',
+		navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+		lazyLoad: true,
+		responsive: {
+			0: { items: 1 },
+			480: { items: 1 },
+			600: { items: 1 },
+			768: { items: 1 },
+			992: { items: 1 },
+			1600: { items: 1 }
+		}, 
+	});
+
+	/*-------------------------------------NEWS_SLIDER-----------------------------------*/
+	$(".related_product .product_list .owl-carousel").owlCarousel({
+		items: 4,
+		loop: true,
+		autoplay: true,
+		autoplayTimeout: 3000,
+		smartSpeed: 1000,
+		margin: 1,
+		dots: false,
+		nav: true,
+		navElement: 'div',
+		navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+		lazyLoad: true,
+		responsive: {
+			0: { items: 2 },
+			480: { items: 2 },
+			600: { items: 3 },
+			768: { items: 3 },
+			992: { items: 4 },
+			1600: { items: 4 }
+		}, 
+	});
+
 	/*-------------------------------------FAQ-------------------------------------------*/
 	$(".tt_toggle .tt_box > .tt_ques").bind("click", function () {
 		if ($(this).parent().hasClass('opened')) {
@@ -181,34 +227,11 @@ $(function () {
 		$(this).parents('.tt_tabMenu').siblings('.tt_tabDetails').children('.tt_tabInfo').hide();
 		$(this).parents('.tt_tabMenu').siblings('.tt_tabDetails').children('.tt_tabInfo').filter(':eq(' + index + ')').show();
 	});
-
-	/*-------------------------------------NEWS_SLIDER-----------------------------------*/
-	$(".news_list .owl-carousel").owlCarousel({
-		items: 1,
-		loop: true,
-		autoplay: true,
-		autoplayTimeout: 3000,
-		smartSpeed: 1000,
-		margin: 30,
-		dots: false,
-		nav: true,
-		navElement: 'div',
-		navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-		lazyLoad: true,
-		responsive: {
-			0: { items: 1 },
-			480: { items: 1 },
-			600: { items: 1 },
-			768: { items: 1 },
-			992: { items: 1 },
-			1600: { items: 1 }
-		}, 
-	});
 });
 
 /*-------------------------------------FLEX SLIDER---------------------------------------*/
 $(window).on('load', function() {
-	$("#slider-product-name-5_carousel").flexslider({
+	$("#product_slider_carousel").flexslider({
 		animation: "slide",
 		controlNav: false, 
 		itemWidth: 80, 
@@ -216,13 +239,13 @@ $(window).on('load', function() {
 		animationLoop: false,
 		slideshow: true, 
 		slideshowSpeed:2000, // slider show speed
-		controlsContainer: "#slider-product-name-5_carousel .flex-nav-container",
-		asNavFor: "#slider-product-name-5",  // slider ID
+		controlsContainer: "#product_slider_carousel .flex-nav-container",
+		asNavFor: "#product_slider",  // slider ID
 		prevText: "←", 
 		nextText: "→"  
 	});
 
-	$("#slider-product-name-5").flexslider({
+	$("#product_slider").flexslider({
 		animation: "slide",
 		controlNav: false,
 		animationLoop: false,
@@ -230,7 +253,7 @@ $(window).on('load', function() {
 		slideshow: true,
 		smoothHeight: true,
 		directionNav: false,
-		sync: "#slider-product-name-5_carousel", // carousel ID - thumbnail holder div
+		sync: "#product_slider_carousel", // carousel ID - thumbnail holder div
 	}); 
 });
 
