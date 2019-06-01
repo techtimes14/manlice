@@ -112,7 +112,7 @@ $(function () {
 	$(".homeslider").owlCarousel({ 
 		items: 1,
 		loop: true,
-		autoplay: false,
+		autoplay: true,
 		autoplayHoverPause: true,
 		autoplayTimeout: 3000,
 		smartSpeed: 1000,
@@ -172,7 +172,15 @@ $(function () {
 			$(this).next('.tt_ans').slideDown(300);
 			return false;
 		}
-	})
+	});
+
+	/*-------------------------------------TAB-------------------------------------------*/
+	$(".tt_tabMenu > ul > li").on('click', function () {
+		$(this).addClass('active').siblings().removeClass('active');
+		var index = $(this).parent().children('li').index($(this));
+		$(this).parents('.tt_tabMenu').siblings('.tt_tabDetails').children('.tt_tabInfo').hide();
+		$(this).parents('.tt_tabMenu').siblings('.tt_tabDetails').children('.tt_tabInfo').filter(':eq(' + index + ')').show();
+	});
 
 	/*-------------------------------------NEWS_SLIDER-----------------------------------*/
 	$(".news_list .owl-carousel").owlCarousel({
