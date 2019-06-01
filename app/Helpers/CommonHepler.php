@@ -16,5 +16,7 @@ class CommonHepler
 										'ja'	=> 'Japanese',
 										'ko'	=> 'Korean'
 									];
+									
+	public const ADMIN_PRODUCT_LIMIT = 50;
 
 }

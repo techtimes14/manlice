@@ -7,15 +7,15 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
-
-use App\Model\Taxonomy;
-use App\Model\Menu;
-use App\Model\SideMenu;
+use App\Model\Setting;
 use Auth;
+use Illuminate\Support\Facades\View;
 
 class CommonController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+	
+	public $siteSettings;
 
     /**
      * Create a new controller instance.
@@ -24,7 +24,8 @@ class CommonController extends BaseController
      */
     public function __construct()
     {
-
+		$settings = Setting::first();
+		View::share('siteSettings', $settings);
     }
 
     /**

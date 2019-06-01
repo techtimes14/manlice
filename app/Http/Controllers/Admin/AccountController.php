@@ -36,11 +36,6 @@ class AccountController extends CommonController
         return view('admin.account.dashboard');
     }
 
-    public function fetchMostVisitedPages($period = 1){
-        $analyticsData = Analytics::fetchMostVisitedPages(Period::days($period));
-        dd($analyticsData);
-    }
-
     /**
      * Show the dashboard.
      *
@@ -48,12 +43,6 @@ class AccountController extends CommonController
      */
     public function settings(Request $request)
     {
-        /* check permission */
-        if($this->checkPermission('Account','settings') == false){
-            $request->session()->flash('alert-danger', "You don't have permissions to access this page.");
-            return redirect()->route('admin.dashboard');
-            exit;
-        }
         $settings = Setting::first();
         $hasRecord = true;
         if($settings == null){

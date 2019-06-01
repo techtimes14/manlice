@@ -94,25 +94,17 @@
 									</label>
 								</td>
 								<td>
-									<a href="{{ route('admin.product.multifileupload', base64_encode($product->id).'?redirect='.urlencode($request->fullUrl())) }}">
-										<i class="far fa-image" ></i>
-									</a>
-
-									<a href="{{ route('admin.product.edit', base64_encode($product->id).'?redirect='.urlencode($request->fullUrl())) }}">
-										<i class="fas fa-pencil-alt"></i>
-									</a>
+									<a href="{{ route('admin.product.multifileupload', base64_encode($product->id).'?redirect='.urlencode($request->fullUrl())) }}" title="Product Image"><i class="far fa-image" ></i></a>
+									&nbsp;
+									<a href="{{ route('admin.product.edit', base64_encode($product->id).'?redirect='.urlencode($request->fullUrl())) }}" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+									&nbsp;
 									@if($product->status == 'I')
-										<a onclick="return confirm('Are you sure you want to unblock the product?')" href="{{ route('admin.product.status', [base64_encode($product->id), $product->status]) }}">
-											<i class="fas fa-lock" title="Click to unblock"></i>
-										</a>
+										<a onclick="return confirm('Are you sure you want to unblock the product?')" href="{{ route('admin.product.status', [base64_encode($product->id), $product->status]) }}"><i class="fas fa-lock" title="Click to unblock"></i></a>
 									@elseif($product->status == 'A')
-										<a onclick="return confirm('Are you sure you want to block the product?')" href="{{ route('admin.product.status', [base64_encode($product->id), $product->status]) }}">
-											<i class="fas fa-unlock" title="Click to block"></i>
-										</a>
+										<a onclick="return confirm('Are you sure you want to block the product?')" href="{{ route('admin.product.status', [base64_encode($product->id), $product->status]) }}"><i class="fas fa-unlock" title="Click to block"></i></a>
 									@endif
-									<a onclick="return confirm('Are you sure you want to delete the product?')" href="{{ route('admin.product.delete', base64_encode($product->id)) }}">
-										<i class="fas fa-trash-alt"></i>
-									</a>
+									&nbsp;
+									<a onclick="return confirm('Are you sure you want to delete the product?')" href="{{ route('admin.product.delete', base64_encode($product->id)) }}" title="Delete"><i class="fas fa-trash-alt"></i></a>
 								</td>
 							</tr>
 						@endforeach
