@@ -18,6 +18,10 @@ class Product extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+	
+	public function productLocale(){
+    	return $this->hasMany('App\Model\ProductLocale', 'product_id');
+    }
 
     public function category(){
     	return $this->belongsTo('App\Model\Category', 'categories_id');

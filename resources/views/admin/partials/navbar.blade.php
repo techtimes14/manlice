@@ -1,10 +1,7 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 	<div class="text-center navbar-brand-wrapper">
-        <span class="navbar-brand brand-logo">
-          {{ (isset($settings) && $settings->website_name != '') ? $settings->website_name : env('APP_NAME') }}
-        </span>
-        <span class="navbar-brand brand-logo">
-          {{ (isset($settings) && $settings->website_name != '') ? $settings->website_name : env('APP_NAME') }}
+        <span class="navbar-brand brand-logo">		
+          {{ (isset($siteSettings) && $siteSettings->website_name != '') ? $siteSettings->website_name : env('APP_NAME') }}
         </span>
 	</div>
 	<div class="navbar-menu-wrapper d-flex align-items-center">
@@ -17,7 +14,7 @@
           </li>
           <li class="nav-item d-none d-sm-block profile-img">
             <a class="nav-link profile-image" href="javascript:void(0)">
-              <img src="{{ asset('images/faces/face28.jpg') }}" alt="profile-img">
+              <img src="{{ asset('images/site/logo_icon.png') }}" alt="profile-img">
               <span class="online-status online bg-success"></span>
             </a>
           </li>

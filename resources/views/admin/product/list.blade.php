@@ -73,12 +73,12 @@
 								<td>
 								@if(isset($product->default_product_image) && $product->default_product_image != null )
 									@if(file_exists(public_path('/uploaded/product/'.$product->default_product_image['name'])))
-									  	{!! '<img src="' . URL::to('/') . '/uploaded/product/' . $product->default_product_image['name'] . '" alt="'. $product->alt_key .'" >' !!}
+									  	{!! '<img src="' . URL::to('/') . '/uploaded/product/' . $product->default_product_image['name'] . '" style="width: 50px;" >' !!}
 									@else
-									  	{!! '<img src="' . URL::to('/') . '/images/no_images.png" alt="'. $product->alt_key .'" >' !!}
+									  	{!! '<img src="' . URL::to('/') . '/images/no_images.png" style="width: 50px;" >' !!}
 									@endif
 								@else
-									{!! '<img src="' . URL::to('/') . '/images/no_images.png" alt="'. $product->alt_key .'" >' !!}
+									{!! '<img src="' . URL::to('/') . '/images/no_images.png" style="width: 50px;" >' !!}
 								@endif
 								</td>
 								<td>{{ $product->product_name }}</td>
@@ -94,29 +94,17 @@
 									</label>
 								</td>
 								<td>
-									<a href="{{ route('admin.product.multifileupload', base64_encode($product->id).'?redirect='.urlencode($request->fullUrl())) }}">
-										<i class="far fa-image" ></i>
-									</a>
-
-									<a href="{{ route('admin.product.video', base64_encode($product->id).'?redirect='.urlencode($request->fullUrl())) }}">
-										<i class="fa fa-play-circle" ></i>
-									</a>
-
-									<a href="{{ route('admin.product.edit', base64_encode($product->id).'?redirect='.urlencode($request->fullUrl())) }}">
-										<i class="fas fa-pencil-alt"></i>
-									</a>
-									<a onclick="return confirm('Are you sure you want to delete the product?')" href="{{ route('admin.product.delete', base64_encode($product->id)) }}">
-										<i class="fas fa-trash-alt"></i>
-									</a>
+									<a href="{{ route('admin.product.multifileupload', base64_encode($product->id).'?redirect='.urlencode($request->fullUrl())) }}" title="Product Image"><i class="far fa-image" ></i></a>
+									&nbsp;
+									<a href="{{ route('admin.product.edit', base64_encode($product->id).'?redirect='.urlencode($request->fullUrl())) }}" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+									&nbsp;
 									@if($product->status == 'I')
-										<a onclick="return confirm('Are you sure you want to unblock the product?')" href="{{ route('admin.product.status', [base64_encode($product->id), $product->status]) }}">
-											<i class="fas fa-lock" title="Click to unblock"></i>
-										</a>
+										<a onclick="return confirm('Are you sure you want to unblock the product?')" href="{{ route('admin.product.status', [base64_encode($product->id), $product->status]) }}"><i class="fas fa-lock" title="Click to unblock"></i></a>
 									@elseif($product->status == 'A')
-										<a onclick="return confirm('Are you sure you want to block the product?')" href="{{ route('admin.product.status', [base64_encode($product->id), $product->status]) }}">
-											<i class="fas fa-unlock" title="Click to block"></i>
-										</a>
+										<a onclick="return confirm('Are you sure you want to block the product?')" href="{{ route('admin.product.status', [base64_encode($product->id), $product->status]) }}"><i class="fas fa-unlock" title="Click to block"></i></a>
 									@endif
+									&nbsp;
+									<a onclick="return confirm('Are you sure you want to delete the product?')" href="{{ route('admin.product.delete', base64_encode($product->id)) }}" title="Delete"><i class="fas fa-trash-alt"></i></a>
 								</td>
 							</tr>
 						@endforeach
