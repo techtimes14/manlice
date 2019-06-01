@@ -624,13 +624,13 @@ class ProductController extends CommonController
 		$image = $request->file('file');
 		$filename = $image->getClientOriginalName();
         $location = public_path('/uploaded/product/'.$filename);
-        if(Image::make($image)->resize(490,517)->save($location)){
+        if(Image::make($image)->save($location)){
             $product_image = [];
             $product_image['product_id'] = $product_id;
             $product_image['name'] = $filename;
 
             $thumb_location = public_path('/uploaded/product/thumb/'.$filename);
-            Image::make($image)->resize(100,120)->save($thumb_location);
+            Image::make($image)->resize(520,350)->save($thumb_location);
 
             $count_default_image = ProductImage::where([['product_id',$product_id],['default_image','Y']])->count();
             if($count_default_image == 0){

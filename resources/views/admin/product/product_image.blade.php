@@ -18,7 +18,7 @@
             </div> -->
           </form>
 
-          <small>{{ __('Please upload image exactly or larger than 490px X 517px for best view.') }}</small><br />
+          <small>{{ __('Please upload image exactly or larger than 520px X 350px for best view.') }}</small><br />
 
           <div class="form-group defultImageMessage">
           &nbsp;
