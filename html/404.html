@@ -1,0 +1,306 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+    
+<head>
+    <link rel="prefetch" as="style" onload="this.rel = 'stylesheet'" href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400i,700">
+    <style>
+    body.clicked{position:fixed;width:100%;height:100%}body.clicked:before{background:#fff;z-index:999}body.clicked:after{width:100px;height:100px;margin:-50px 0 0 -50px;z-index:999}.loader.clicked{position:fixed;top:0;left:0;right:0;bottom:0;z-index:1000}.loader.clicked:before{-webkit-border-radius:0;border-radius:0;background:rgba(0,0,0,.8)}.loader.clicked:after{width:70px;height:70px;margin:-120px 0 0 -35px;border-color:#fff transparent #fff #fff}.noloader.loader.clicked:after{display:none}.loader.clicked>div{position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);font-size:18px;line-height:35px;color:#fff;z-index:1;margin:40px 0 0;padding:30px;width:100%;text-align:center}.loader.clicked>div span{text-transform:uppercase;margin-top:20px}.clicked{position:relative;pointer-events:none}.clicked:after,.clicked:before{position:absolute;content:"";display:block;z-index:1}.clicked:before{top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,.8);-webkit-border-radius:0;border-radius:0;opacity:1}.btn.clicked:before,[type=submit].clicked:before,[type=reset].clicked:before,button.clicked:before{-webkit-border-radius:30px;border-radius:30px}.clicked:after{top:50%;left:50%;margin:-12px 0 0 -12px;width:24px;height:24px;border:3px solid #3799FE;border-right-color:transparent;-webkit-border-radius:50%;border-radius:50%;-webkit-animation-duration:.75s;-moz-animation-duration:.75s;animation-duration:.75s;-webkit-animation-iteration-count:infinite;-moz-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-name:rotate-forever;-moz-animation-name:rotate-forever;animation-name:rotate-forever;-webkit-animation-timing-function:linear;-moz-animation-timing-function:linear;animation-timing-function:linear}@-webkit-keyframes rotate-forever{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-o-transform:rotate(360deg);transform:rotate(360deg)}}@-moz-keyframes rotate-forever{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-o-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes rotate-forever{0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-o-transform:rotate(360deg);transform:rotate(360deg)}}
+    </style>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Manlice</title>
+    <meta name="keywords" content="Manlice" />
+    <meta name="description" content="Manlice" />
+    <meta name="Robots" content="index, follow"/>
+    <link rel="canonical" href="#" />
+    <meta name="theme-color" content="#0084d9">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="css/plugins.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+</head>
+
+<body>
+    <div class="bodyOverlay"></div>
+    <div class="responsive_nav"></div>
+    <div id="hsearchWrap"></div>
+    <a class="scrollup" href="javascript:void(0);" aria-label="Scroll to top"><i class="fa fa-arrow-up"></i></a>
+    
+    <header class="mainHeader">
+        <section class="header_main">
+            <div class="htop">
+                <div class="container">
+                    <div class="tt_fleft">
+                        <nav class="nav_menu">
+                            <ul>
+                                <li><a href="about.html"><span>About Us</span></a></li>
+                                <li><a href="contact.html"><span>Contact Us</span></a></li>
+                            </ul>
+                        </nav>
+                        <!-- <div class="account_section">
+                            <a href="login.html"><i class="fa fa-sign-in"></i> <span>Login / Register</span></a>
+                        </div> -->
+                        <div class="tt_hcart">
+                            <a href="cart.html"><i class="fa fa-shopping-cart"></i> <span>0 Items - $0.00</span></a>
+                        </div>
+                        <div class="tt_language">
+                            <span><i class="fa fa-globe"></i> English</span>
+                            <ul>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-cn" alt=""> Chinese</span></li>
+                                <li class="active"><span class="tt_flag"><img src="images/blank.gif" class="flag flag-gb" alt=""> English</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-fr" alt=""> French</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-de" alt=""> German</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-es" alt=""> Spanish</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-ru" alt=""> Russian</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-jp" alt=""> Japanese</span></li>
+                                <li><span class="tt_flag"><img src="images/blank.gif" class="flag flag-kr" alt=""> Korean</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tt_fright">
+                        <div class="social">
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_rss">
+                                <i class="fa fa-rss"></i>
+                                <span>RSS Text</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_email">
+                                <i class="fa fa-envelope"></i>
+                                <span>Contact Us</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_twitter">
+                                <i class="fa fa-twitter"></i>
+                                <span>Follow Us On Twitter</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_facebook">
+                                <i class="fa fa-facebook"></i>
+                                <span>Follow Us On Facebook</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_flicker">
+                                <i class="fa fa-flickr"></i>
+                                <span>Follow Us On Flicker</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_google-plus">
+                                <i class="fa fa-google-plus"></i>
+                                <span>Follow Us On Google+</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hmdl">
+                <div class="container">
+                    <div class="logo">
+                        <a href="index.html" aria-label="Manlice" style="background-image:url(images/logo.png);"></a>
+                    </div>
+                    <div class="hinfo">
+                        <ul>
+                            <li><i class="fa fa-mobile" aria-hidden="true"></i> <div>CALL US FREE: +1 555 555 55</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hbtm">
+                <div class="container">
+                    <div class="nav_wrapper">
+                        <nav class="nav_menu">
+                            <ul class="clearfix">
+                                <li><a href="index.html">Home<span>go to home</span></a></li>
+                                <li><a href="about.html">About<span>discover</span></a></li>
+                                <li><a href="product.html">Product<span>the showcase</span></a>
+                                    <span class="fa fa-angle-down subarrow"></span>
+                                    <ul class="sub-menu">
+                                        <li><a href="product_details.html">Product 1</a></li>
+                                        <li><a href="product_details.html">Product 2</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="service.html">Service<span>we offer</span></a></li>
+                                <li><a href="news.html">News<span>latest news</span></a></li>
+                                <li><a href="contact.html">Contact Us<span>get in touch</span></a></li>
+                            </ul>
+                        </nav>
+                    
+                        <span class="responsive_btn"><span></span></span>
+                    </div>
+
+                    <div class="hsearch">
+                        <form>
+                            <input type="text" placeholder="Search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="common_banner innerbanner">
+            <div class="bannerbox" style="background-image: url(images/sample/inner_banner.jpg);">
+                <div class="bannertext">
+                    <div class="container">
+                        <div class="heading">404 - Page Not Found</div>
+                        <div class="breadcrumb">
+                            <ul>
+                                <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                                <li>Error 404</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    
+    <main class="mainContainer ">
+       <section class="section tt_errPage">
+            <div class="container">
+                <div class="tt_errImg"><img src="images/404.png" alt=""></div>
+                <div class="tt_errText">
+                    <h1 class="heading">404</h1>
+                    <div class="editor_text">
+                        <p>Apologies, but the page you requested could not be found. Perhaps searching will help.</p>
+                        <form>
+                            <input type="text" placeholder="type and hit enter..">
+                        </form>
+                    </div>
+                </div>
+            </div>
+       </section>
+
+       <section class="section bg_gray ftop">
+           <div class="container">
+               <div class="row">
+                   <div class="col-sm-3">
+                        <h2 class="heading">About Us</h2>
+                        <div class="fabt">
+                            <div class="logo">
+                                <a href="index.html" aria-label="Manlice" style="background-image:url(images/logo_icon_gray.png);"></a>
+                            </div>
+                            <div class="editor_text">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at erat interdum ut erat</p>
+                            </div>
+                        </div>
+                   </div>
+                   <div class="col-sm-3">
+                        <h2 class="heading">Contact Info</h2>
+                        <div class="tt_contact">
+                            <ul class="ul">
+                                <li>
+                                    <div class="tt_comm">
+                                        <i class="fa fa-home"></i>
+                                        <div>63739 street lorem ipsum Country</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tt_comm">
+                                        <i class="fa fa-phone"></i>
+                                        <div>+1 123 312 32 23</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tt_comm">
+                                        <i class="fa fa-print"></i>
+                                        <div>+1 123 312 32 23</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tt_comm">
+                                        <i class="fa fa-life-ring"></i>
+                                        <div><a href="mailto:support@company.com">support@company.com</a></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <h2 class="heading">Recent News</h2>
+                        <div class="news_list">
+                            <ul class="ul">
+                                <li>
+                                    <div class="tt_box">
+                                        <figure>
+                                            <a href="news_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/rp_img1.jpg" alt=""></a>
+                                        </figure>
+                                        <div class="tt_text">
+                                            <h3 class="subheading"><a href="news_details.html">Video Post Type</a></h3>
+                                            <span class="tt_date">March 1, 2012</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tt_box">
+                                        <figure>
+                                            <a href="news_details.html"><img class="lazy" src="images/blank.png" data-src="images/sample/rp_img1.jpg" alt=""></a>
+                                        </figure>
+                                        <div class="tt_text">
+                                            <h3 class="subheading"><a href="news_details.html">Video Post Type</a></h3>
+                                            <span class="tt_date">March 1, 2012</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <h2 class="heading">Work With Us</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sodales vehicula odio quis lobortis. Aenean lacinia pulvinar hendrerit. <a href="contact.html">Contact Us</a> today!</p>
+                    </div>
+               </div>
+           </div>
+       </section>
+    </main>
+
+    <footer class="mainFooter">
+        <div class="container">
+            <section class="tt_fleft">
+                <nav class="fnav">
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="copyright">
+                    <p>Copyright © 2017 <a href="index.html">Manlice</a></p>
+                </div>
+            </section>
+
+            <section class="tt_fright">
+                <div class="social">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_rss">
+                        <i class="fa fa-rss"></i>
+                        <span>RSS Text</span>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_email">
+                        <i class="fa fa-envelope"></i>
+                        <span>Contact Us</span>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_twitter">
+                        <i class="fa fa-twitter"></i>
+                        <span>Follow Us On Twitter</span>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_facebook">
+                        <i class="fa fa-facebook"></i>
+                        <span>Follow Us On Facebook</span>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_flicker">
+                        <i class="fa fa-flickr"></i>
+                        <span>Follow Us On Flicker</span>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="tt_google-plus">
+                        <i class="fa fa-google-plus"></i>
+                        <span>Follow Us On Google+</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </footer>
+    
+	<script type="text/javascript" src="js/plugins.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+</body>
+</html>
