@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Auth;
 use Image;
-use CommonHepler;
+use CommonHelper;
 use App\Model\Product;
 use App\Model\ProductLocale;
 use App\Model\RelatedProduct;
@@ -48,7 +48,7 @@ class ProductController extends CommonController
                         }, function($query){
                             $query->orderBy('created_at', 'desc');
                         })
-                        ->paginate(CommonHepler::ADMIN_PRODUCT_LIMIT);
+                        ->paginate(CommonHelper::ADMIN_PRODUCT_LIMIT);
         return view('admin.product.list', ['products' => $products, 'request' => $request]);
     }
 
@@ -68,8 +68,8 @@ class ProductController extends CommonController
 			$product_request['meta_description']= $request->meta_description;
 
 			if($product_data = Product::create($product_request)){				
-				if(count(CommonHepler::WEBSITE_LANGUAGES) > 0){
-					foreach(CommonHepler::WEBSITE_LANGUAGES as $keyLang => $valLang) {
+				if(count(CommonHelper::WEBSITE_LANGUAGES) > 0){
+					foreach(CommonHelper::WEBSITE_LANGUAGES as $keyLang => $valLang) {
 						$product_locale['product_id']   = $product_data->id;
 						$product_locale['lang_code'] 	= $keyLang;
 						$product_locale['product_name']	= $request['product_name_'.$keyLang];
@@ -132,8 +132,8 @@ class ProductController extends CommonController
 			$product_request['special_price']= $request->special_price;
 			
 			if($products->update($product_request)){
-				if (count(CommonHepler::WEBSITE_LANGUAGES) > 0){
-					foreach (CommonHepler::WEBSITE_LANGUAGES as $keyLang => $valLang) {
+				if (count(CommonHelper::WEBSITE_LANGUAGES) > 0){
+					foreach (CommonHelper::WEBSITE_LANGUAGES as $keyLang => $valLang) {
 						if (count($products->productLocale) > 0) {
 							foreach ($products->productLocale as $locale) {
 								if ($keyLang == $locale->lang_code) {

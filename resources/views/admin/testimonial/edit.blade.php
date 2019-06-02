@@ -13,7 +13,7 @@
 		                    <h4 class="font-weight-light alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }}</h4>
 		                @endif
 		            @endforeach
-					{!! Form::model($testimonial, ['route' => ['admin.testimonial.edit', base64_encode($testimonial->id).'?redirect='.urlencode(Request::query('redirect'))], 'id' => 'testimonialAdd', 'class' => 'cmxform', 'method' => 'PUT', 'novalidate'] ) !!}
+					{!! Form::model($testimonial, ['route' => ['admin.testimonial.edit', base64_encode($testimonial->id).'?redirect='.urlencode(Request::query('redirect'))], 'id' => 'testimonialAdd', 'class' => 'cmxform', 'files' => true, 'method' => 'PUT', 'novalidate'] ) !!}
 						<h4 class="card-title">{{ __('Edit Testimonial') }}</h4>
 						<fieldset>
 							<div class="form-group">
@@ -22,6 +22,20 @@
 								@if ($errors->has('title'))
 									<span class="error">
 										{{ $errors->first('title') }}
+									</span>
+								@endif
+							</div>
+							<div class="form-group">
+								<label for="image">{{ __('Image') }}<span class="text-danger">&#042;</span></label>
+								{!! Form::file('image', array('class'=>'form-control', 'placeholder' => __('Select Image'), 'id' => 'image', 'autocomplete' => 'off')) !!}
+								<small>{{ __('Please upload image exactly or larger than 262px X 262px for best view.') }}</small><br />
+								<image src="{!! !empty($testimonial->image) ? URL::to('/') . '/uploaded/testimonial/' . $testimonial->image : '' !!}" id="image-preview-after-crop" style="{{ empty($testimonial->image) ? 'display: none; ' : '' }} width: 100px;" />
+								
+								<img id="list" style="display: none;" />
+								
+								@if ($errors->has('image'))
+									<span class="error">
+										{{ $errors->first('image') }}
 									</span>
 								@endif
 							</div>
@@ -65,8 +79,6 @@ $(function() {
   	});
 });
 
-
-
 /*Tinymce editor*/
 if ($("#content").length) {
     tinymce.init({
@@ -100,13 +112,37 @@ if ($("#content").length) {
     });
 }
 
-/*$('#title').on('blur', function(){
-	var title = $.trim($(this).val());
-	if(title != ''){
-		//if($.trim($('#slug').val()) == ''){
-			$('#slug').val(title.replace(/ /g,"-").toLowerCase());
-		//}
-	}
-});*/
+var _URL = window.URL || window.webkitURL;
+$("#image").change(function (e) {
+    var file, img;
+    var fuData = document.getElementById('image');
+    var FileUploadPath1 = fuData.value;
+    if (FileUploadPath1 == ''){
+        alert("Please upload an image");
+    } else {
+		var Extension = FileUploadPath1.substring(FileUploadPath1.lastIndexOf('.') + 1).toLowerCase();
+		if (Extension == "png" || Extension == "bmp" || Extension == "jpeg" || Extension == "jpg"){
+			if ((file = this.files[0])) {
+				img = new Image();
+				img.onload = function () {            
+					if(this.width < '262' || this.height < '262') {
+						alert('Minimum upload image size 262px X 262px');
+						document.getElementById('image').value="";
+						document.getElementById('list').src="";
+						$('#list').hide();
+						return false;
+					} else {
+						$('#list').show();
+						var output = document.getElementById('list');
+						output.src = URL.createObjectURL(e.target.files[0]);
+						document.getElementById('list').style.width="100px";
+						return true;
+					}
+				};
+				img.src = _URL.createObjectURL(file);
+			}
+		}
+    }
+});
 </script>
 @endsection

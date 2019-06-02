@@ -74,18 +74,15 @@
 									</label>
 								</td>
 								<td>
-									<a href="{{ route('admin.testimonial.edit', base64_encode($testimonial_detail->id).'?redirect='.urlencode($request->fullUrl())) }}">
-										<i class="fas fa-pencil-alt"></i>
-									</a>
-									<a onclick="return confirm('Are you sure you want to delete the testimonial?')" href="{{ route('admin.testimonial.delete', base64_encode($testimonial_detail->id)) }}">
-										<i class="fas fa-trash-alt"></i>
-									</a>
-
+									<a href="{{ route('admin.testimonial.edit', base64_encode($testimonial_detail->id).'?redirect='.urlencode($request->fullUrl())) }}" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+									&nbsp;
 									@if($testimonial_detail->is_block == 'Y')
 										<a onclick="return confirm('Are you sure you want to unblock the testimonial?')" href="{{ route('admin.testimonial.status', [base64_encode($testimonial_detail->id), $testimonial_detail->is_block]) }}"><i class="fas fa-lock" title="Click to unblock"></i></a>
 									@elseif($testimonial_detail->is_block == 'N')
 										<a onclick="return confirm('Are you sure you want to block the testimonial?')" href="{{ route('admin.testimonial.status', [base64_encode($testimonial_detail->id), $testimonial_detail->is_block]) }}"><i class="fas fa-unlock" title="Click to block"></i></a>
 									@endif
+									&nbsp;
+									<a onclick="return confirm('Are you sure you want to delete the testimonial?')" href="{{ route('admin.testimonial.delete', base64_encode($testimonial_detail->id)) }}" title="Delete"><i class="fas fa-trash-alt"></i></a>
 									</a>
 								</td>
 							</tr>

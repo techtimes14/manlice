@@ -1,9 +1,3 @@
-<style type="text/css">
-  /* .sidebar .nav {
-      max-height: 109vh !important;
-      overflow-y: auto;
-  } */
-</style>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item @if (Route::current()->getName() == 'admin.dashboard') active @endif">
@@ -33,6 +27,28 @@
 		</div>
 	</li>
     <!-- Product Management Section End -->
+	
+	<!-- Testimonial Management -->
+	<li class="nav-item @if (Route::current()->getName() == 'admin.testimonial.list' || Route::current()->getName() == 'admin.testimonial.add' || Route::current()->getName() == 'admin.testimonial.edit') active @endif">
+        <a class="nav-link" data-toggle="collapse" href="#testimonial" aria-expanded="false" aria-controls="testimonial">
+			<i class="far fa-comment menu-icon"></i>
+			<span class="menu-title">{{ __('Testimonial Management') }}</span>
+			<span class="pull-right-container">
+				<i class="fa fa-angle-right pull-right"></i>
+			</span>
+        </a>
+        <div class="collapse @if (Route::current()->getName() == 'admin.testimonial.list' || Route::current()->getName() == 'admin.testimonial.add' || Route::current()->getName() == 'admin.testimonial.edit') show @endif" id="testimonial">
+			<ul class="nav flex-column sub-menu">
+            	<li class="nav-item @if (Route::current()->getName() == 'admin.testimonial.list') active @endif">
+					<a class="nav-link" href="{{ route('admin.testimonial.list') }}"> List </a>
+				</li>
+				<li class="nav-item @if (Route::current()->getName() == 'admin.testimonial.add') active @endif">
+					<a class="nav-link" href="{{ route('admin.testimonial.add') }}"> Add </a>
+				</li>
+			</ul>
+        </div>
+	</li>
+    <!-- Testimonial Management -->
 	
 	<li class="nav-item @if (Route::current()->getName() == 'admin.cms.list' || Route::current()->getName() == 'admin.cms.add' || Route::current()->getName() == 'admin.cms.edit') active @endif">
         <a class="nav-link" data-toggle="collapse" href="#cms" aria-expanded="false" aria-controls="cms">

@@ -22,7 +22,7 @@
 					@endif
 				@endforeach
 				
-				{!! Form::model($products, ['route' => ['admin.product.edit', base64_encode($products->id)], 'id' => 'productAdd', 'class' => 'cmxform', 'method' => 'PUT', 'novalidate','files' => true] ) !!}
+				{!! Form::model($products, ['route' => ['admin.product.edit', base64_encode($products->id)], 'id' => 'productEdit', 'class' => 'cmxform', 'method' => 'PUT', 'novalidate','files' => true] ) !!}
 					<h4 class="card-title">{{ __('Edit Product') }}</h4>
 						<fieldset>
 							<div class="row">
@@ -280,7 +280,7 @@
 <script type="text/javascript">
 $(function() {
     // validate the comment form when it is submitted
-    $("#productAdd").validate({
+    $("#productEdit").validate({
     	rules: {
             product_name_en: {
                 required: true

@@ -4,7 +4,7 @@ namespace App\Helpers;
 
 use Request;
 
-class CommonHepler
+class CommonHelper
 {
     public const WEBSITE_LANGUAGES = [
 										'en'	=> 'English',
@@ -17,6 +17,7 @@ class CommonHepler
 										'ko'	=> 'Korean'
 									];
 									
-	public const ADMIN_PRODUCT_LIMIT = 50;
+	public const ADMIN_PRODUCT_LIMIT 		= 50;
+	public const ADMIN_TESTIMONIAL_LIMIT 	= 50;
 
 }

@@ -3,37 +3,25 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
 use Auth;
-
+use Image;
 use App\Model\Testimonial;
+use CommonHelper;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class TestimonialController extends CommonController
 {
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         parent::__construct();
     }
 
     /**
-     * Show the listing.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    *** Show the listing.
+    **/
     public function list(Request $request)
     {
-        /* check permission */
-        if($this->checkPermission('testimonial','list') == false){
-            $request->session()->flash('alert-danger', "You don't have permissions to access this page.");
-            return redirect()->route('admin.dashboard');
-            exit;
-        }
         $orWhere = array();
         $where = [];
         // search confitions
@@ -57,53 +45,50 @@ class TestimonialController extends CommonController
                                         }, function($query){
                                             $query->orderBy('created_at', 'desc');
                                         })
-                                        ->paginate(20);
+                                        ->paginate(CommonHelper::ADMIN_TESTIMONIAL_LIMIT);
         return view('admin.testimonial.list', ['testimonial' => $testimonial, 'request' => $request]);
     }
 
     /**
-     * Add Testimonial.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    *** Add Testimonial.
+    **/
     public function add(Request $request)
     {
-        /* check permission */
-        if($this->checkPermission('testimonial','add') == false){
-            $request->session()->flash('alert-danger', "You don't have permissions to access this page.");
-            return redirect()->route('admin.dashboard');
-            exit;
-        }
         $testimonial = new Testimonial;
         if($request->isMethod('PUT')){
             $request->validate([
-                'title' => 'required',
-                'content' => 'required'
+                'title' 	=> 'required',
+				'image' 	=> 'required',
+                'content' 	=> 'required'
             ]);
-            if($testimonial->create(array_merge($request->except(['_method', '_token']), ['created_by' => Auth::guard('admin')->user()->id]))){
-                $request->session()->flash('alert-success', 'Testimonial successfully added.');
-                return redirect()->route('admin.testimonial.list');
-            }else{
-                $request->session()->flash('alert-danger', 'Sorry! There was an unexpected error. Try again!');
+			
+			$image	  = Input::file('image');
+            $filename = 'manlice-testimonial-'.time().'.'.$image->getClientOriginalExtension();
+            $location = public_path('/uploaded/testimonial/'.$filename);
+			if(Image::make($image)->save($location)){
+				$thumb_location = public_path('/uploaded/testimonial/thumb/'.$filename);
+				Image::make($image)->resize(262,262)->save($thumb_location);
+				
+				if($testimonial->create(['title' => $request->title, 'content' => $request->content, 'image' => $filename])){
+                    $request->session()->flash('alert-success', 'Testimonial added successfully');
+                    return redirect()->route('admin.testimonial.list');
+                }else{
+                    $request->session()->flash('alert-danger', 'Sorry! There was an unexpected error. Try again!');
+                    return redirect()->back()->with($request->except(['_method', '_token']));
+                }				
+			} else {
+				$request->session()->flash('alert-danger', 'Sorry! There was an unexpected error. Try again!');
                 return redirect()->back()->with($request->except(['_method', '_token']));
-            }
+			}
         }
         return view('admin.testimonial.add', ['testimonial' => $testimonial]);
     }
 
     /**
-     * Edit Testimonial.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    *** Edit Testimonial.
+    **/
     public function edit($id = null, Request $request)
     {
-        /* check permission */
-        if($this->checkPermission('testimonial','edit') == false){
-            $request->session()->flash('alert-danger', "You don't have permissions to access this page.");
-            return redirect()->route('admin.dashboard');
-            exit;
-        }
         if($id == null){
             return redirect()->route('admin.dashboard');
         }
@@ -114,13 +99,27 @@ class TestimonialController extends CommonController
                 'title'   => 'required',
                 'content' => 'required'
             ]);
-            if($testimonial->update($request->except(['_method', '_token', 'redirect']))){
+			
+			$filename = $testimonial->image;
+            if(Input::file('image') != null){
+				$image	  = Input::file('image');
+				$filename = 'manlice-testimonial-'.time().'.'.$image->getClientOriginalExtension();
+				
+				$location = public_path('/uploaded/testimonial/'.$filename);
+				if(Image::make($image)->save($location)) {
+					$thumb_location = public_path('/uploaded/testimonial/thumb/'.$filename);
+					Image::make($image)->resize(262,262)->save($thumb_location);
+					
+					$largeImage = public_path().'/uploaded/testimonial/'.$testimonial->image;
+					$thumbImage = public_path().'/uploaded/testimonial/thumb/'.$testimonial->image;
+					@unlink($largeImage);
+					@unlink($thumbImage);
+				}
+			}
+			
+			if($testimonial->update(['title' => $request->title, 'content' => $request->content, 'image' => $filename])){
                 $request->session()->flash('alert-success', 'Testimonial successfully updated.');
-                if($request->query('redirect') != null){
-                    return redirect($request->query('redirect'));
-                }else{
-                    return redirect()->route('admin.testimonial.list');
-                }
+                return redirect()->route('admin.testimonial.list');
             }else{
                 $request->session()->flash('alert-danger', 'Sorry! There was an unexpected error. Try again!');
                 return redirect()->back()->with($request->except(['_method', '_token']));
@@ -130,24 +129,22 @@ class TestimonialController extends CommonController
     }
 
     /**
-     * Delete cms.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    *** Delete
+    **/
     public function delete($id = null, Request $request)
     {
-        /* check permission */
-        if($this->checkPermission('testimonial','delete') == false){
-            $request->session()->flash('alert-danger', "You don't have permissions to access this page.");
-            return redirect()->route('admin.dashboard');
-            exit;
-        }
         if($id == null){
             return redirect()->route('admin.dashboard');
         }
         $id = base64_decode($id);
+		$testimonial = Testimonial::find($id);
+		$largeImage = public_path().'/uploaded/testimonial/'.$testimonial->image;
+		$thumbImage = public_path().'/uploaded/testimonial/thumb/'.$testimonial->image;
+		@unlink($largeImage);
+		@unlink($thumbImage);
+		
         if(Testimonial::where(['id' => $id])->delete()){
-            $request->session()->flash('alert-success', 'Testimonial successfully deleted.');
+            $request->session()->flash('alert-success', 'Testimonial deleted successfully');
             return redirect()->back();
         }else{
             $request->session()->flash('alert-danger', 'Sorry! There was an unexpected error. Try again!');
@@ -156,10 +153,8 @@ class TestimonialController extends CommonController
     }
 
     /**
-     * Change cms status - block or unblock.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    *** Change status - block or unblock.
+    **/
     public function status($id = null, $status = null, Request $request)
     {
         if($id == null || $status == null){
@@ -182,7 +177,7 @@ class TestimonialController extends CommonController
                 return redirect()->back();
         }
         if(Testimonial::where(['id' => $id])->update(['is_block' => $block])){
-            $request->session()->flash('alert-success', 'Testimonial successfully '.$blockText);
+            $request->session()->flash('alert-success', 'Testimonial '.$blockText.' successfully');
             return redirect()->back();
         }else{
             $request->session()->flash('alert-danger', 'Sorry! There was an unexpected error. Try again!');
