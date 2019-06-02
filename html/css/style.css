@@ -49,8 +49,21 @@ img {border: none; outline: none; display: inline-block; max-width: 100%;}
 mark {background-color: #ff9; color: #000; font-style: italic; font-weight: bold;}
 del {text-decoration: line-through;}
 hr {display: block; height: 1px; border: 0; margin: 10px 0; padding: 0; border-top: 1px solid #d3d3d3;}
-/* ::-moz-selection{background: #f4bf1e; color: #fff; text-shadow: none;}
-::selection{background: #f4bf1e; color: #fff; text-shadow: none;} */
+blockquote{padding: 20px 40px; margin-bottom: 20px; background: #f9f9f9; -webkit-border-radius: 4px; border-radius: 4px; font-size: 16px; line-height: 28px; font-style: italic; position: relative;}
+blockquote:last-child{margin-bottom: 0;}
+blockquote:before, blockquote:after{
+    content: "\f10d";
+    display: block;
+    font-family: 'FontAwesome';
+    font-size: 22px;
+    color: #ccc;
+    position: absolute;
+    top: 6px;
+    left: 8px;
+}
+blockquote:after{content: "\f10e"; top: auto; left: auto; bottom: 6px; right: 10px;}
+::-moz-selection{background: #f4bf1e; color: #fff; text-shadow: none;}
+::selection{background: #f4bf1e; color: #fff; text-shadow: none;}
 table {border: none; border-collapse: collapse;	border-spacing: 0; width: 100%;}
 table th, table td {padding: 8px; vertical-align: top; border: 1px solid #d3d3d3;}
 table th{background: #e4e4e4; color: #000; white-space: nowrap;}
@@ -489,10 +502,11 @@ a.pagination_view{font-size: inherit;}
 .breadcrumb {
     background: none;
     border: none;
+    border-bottom: 1px solid #f0f0f0;
     -webkit-border-radius: 0;
     border-radius: 0;
     padding: 10px 0;
-	margin: 0;
+	margin: -30px 0 20px;
     font-weight: 400;
     font-size: 11px;
     line-height: 18px;
@@ -751,6 +765,7 @@ a.pagination_view{font-size: inherit;}
 .heading:last-child, .subheading:last-child, .heading_tag:last-child{margin-bottom: 0;}
 .heading a, .subheading a{color: inherit;display: inline;}
 .heading a:hover, .heading a:focus, .subheading a:hover, .subheading a:focus, a:hover .heading, a:hover .subheading{color: #f4bf1e;}
+.editor_text .subheading{text-transform: none;}
 
 /* COMMON
 ---------------------------------*/
@@ -1307,7 +1322,7 @@ html.responsive,.responsive body {overflow-y: hidden;}
     margin: 0;
     float: left;
 }
-.innerbanner .breadcrumb{float: right; clear: none; margin: 0; padding: 4px 0;}
+.innerbanner .breadcrumb{float: right; clear: none; margin: 0; padding: 4px 0; border: none;}
 
 /* @-webkit-keyframes slideInUp {
     from {
@@ -1852,11 +1867,11 @@ html.responsive,.responsive body {overflow-y: hidden;}
 
 /* CONTACT PAGE
 ---------------------------------*/
-.tt_contact.grid_view .tt_comm{
-    border: 1px solid #d3d3d3;
-    padding: 30px;
-    text-align: center;
-}
+.contact_section .subheading{text-transform: capitalize;}
+.contact_section .tt_contact .tt_comm a{color: inherit; text-decoration: none;}
+.contact_section .tt_contact .tt_comm a:hover{color: #f4bf1e;}
+
+.tt_contact.grid_view .tt_comm{border: 1px solid #d3d3d3; padding: 30px; text-align: center;}
 .tt_contact.grid_view .tt_comm > i, .tt_contact.grid_view .tt_comm > .siteicon, .tt_contact.grid_view .tt_comm > .fa{
     width: 60px;
     height: 60px;
@@ -1897,76 +1912,17 @@ html.responsive,.responsive body {overflow-y: hidden;}
 }
 .purchase_section .btn_center{margin-top: 15px;}
 
-
-
-.inner_pro_list{
-    padding-bottom: 0;
-}
-
-.ftop .heading{
-    font-family: 'PT Sans', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
-    color: #888;
-    text-align: left;
-    text-transform: capitalize;
-}
-.recent_news .rn_img{
-    position: relative;
-    overflow: hidden;
-    padding-top: 12%;
-    width: 70px;
-    float: left;
-    border: 4px solid #fff;
-}
-.recent_news .rn_img img{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-.recent_news .rn_text{
-    margin-left: 80px;
-}
-.recent_news .rn_text .subheading{
-    color: #777;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 17px;
-    margin-bottom: 1px;
-}
-.recent_news .rn_text span.dt{
-    font-size: 11px;
-    color: #aaa;
-    font-style: italic;
-    line-height: 22px;
-}
-.recent_news ul li{
-    margin-bottom: 20px;
-}
-.recent_news ul li:last-child{
-    margin-bottom: 0;
-}
-.recent_news .rn_text a{
-    text-decoration: none;
-}
-.recent_news .rn_text a:hover{
-    text-decoration: underline;
-    color: #777;
-}
-.ftop .gray_logo{width: 61px; float: left;}
-.ftop .abt_sec p{
-    margin-left: 80px;
-}
-.ftop a{
-    text-decoration: underline;
-}
-.ftop a:hover{
-    text-decoration: none;
-    color: #f4bf1e;
-}
+.ftop.bg_gray:after{display: none;}
+.ftop .heading{font: normal 400 18px/24px 'PT Sans', sans-serif; color: #888; text-align: left; text-transform: capitalize;}
+.fabt .logo{float: left;}
+.fabt .logo a{width: 62px; height: 62px;}
+.fabt .editor_text{margin: 0 0 0 80px;}
+.ftop .news_list > ul > li{margin-bottom: 20px;}
+.ftop .news_list > ul, .ftop .news_list > ul > li:last-child{margin-bottom: 0;}
+.ftop .news_list .tt_box figure{width: 70px; height: 40px; border: 4px solid #fff; -webkit-box-shadow: 2px 2px 0 rgba(0,0,0,.035); box-shadow: 2px 2px 0 rgba(0,0,0,.035); float: left; margin: 0; padding: 0;}
+.ftop .news_list .tt_box .tt_text{margin: 0 0 0 80px;}
+.ftop .news_list .tt_box .subheading{font: normal 700 13px/18px 'PT Sans',sans-serif; color: #777; margin-bottom: 1px;}
+.ftop .news_list .tt_box .tt_date{font-style: italic; font-size: 11px; line-height: 22px; color: #aaa;}
 /*PRODUCT LIST END*/
 
 /* PRODUCT_DETAILS
@@ -2218,6 +2174,14 @@ body [class^=icon-]:before, body [class*=" icon-"]:before {
 .flexslider:hover .carousel .flex-direction-nav li .flex-prev {left: 0;}
 .flexslider:hover .carousel .flex-direction-nav li .flex-next {right: 0;}
 /*PRODUCT_DETAILS END*/
+
+/* 404
+---------------------------------*/
+.tt_errPage{padding: 80px 0;}
+.tt_errPage .tt_errImg{width: 330px; text-align: center; float: left;}
+.tt_errPage .tt_errText{margin: 0 0 0 360px;}
+.tt_errPage .heading{font-size: 100px; line-height: 140px; text-align: inherit; margin: 0; padding: 0;}
+/*404 END*/
 
 /* HELPER_CSS
 ---------------------------------*/
