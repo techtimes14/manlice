@@ -1015,9 +1015,10 @@ a.pagination_view{font-size: inherit;}
     list-style: none;
     margin: 15px 0 0;
     padding: 0;
-    width: 100px;
+    width: 200px;
     background: #fff;
-    border: 1px solid #eee;
+    border-top: 1px solid #eee;
+    border-left: 1px solid #eee;
     -webkit-box-shadow: 0 5px 2px 0 rgba(0,0,0,.2);
     box-shadow: 0 5px 2px 0 rgba(0,0,0,.2);
     position: absolute;
@@ -1030,8 +1031,7 @@ a.pagination_view{font-size: inherit;}
     transition: all 300ms ease-in-out 0s;
 }
 .tt_language:hover > ul{opacity: 1; visibility: visible; margin: 0;}
-.tt_language > ul li{margin: 0; padding: 0; border-bottom: 1px solid #eee; line-height: 14px;}
-.tt_language > ul li:last-child{border-bottom: none;}
+.tt_language > ul li{margin: 0; padding: 0 5px; border-bottom: 1px solid #eee; border-right: 1px solid #eee; line-height: 14px; width: 50%; float: left;}
 .tt_language > ul li span, .tt_language > ul li a{display: block; padding: 5px; cursor: pointer;}
 .tt_flag img{margin-right: 5px;}
 .tt_language > ul li:hover span, .tt_language > ul li:hover a, .tt_language > ul li.active span, .tt_language > ul li.active a{color: #f4bf1e;}
@@ -1929,17 +1929,28 @@ html.responsive,.responsive body {overflow-y: hidden;}
 
 /* PRODUCT_DETAILS
 ---------------------------------*/
-.product_details .pimg{width: 240px; float: left; border: 1px solid #f0f0f0; padding: 10px; overflow: hidden;}
-.product_details .ptext{margin: 0 0 0 260px;}
+.product_details .pimg{width: 330px; float: left; border: 1px solid #f0f0f0; padding: 10px; overflow: hidden;}
+.product_details .ptext{margin: 0 0 0 350px;}
 .product_details .heading{text-transform: capitalize; text-align: left; margin-bottom: 10px;}
 .pinfo{color: #aaa; font-size: 12px;}
 .pcat a{text-decoration: underline; margin-right: 3px;}
 .pcat a:after{content: ","; display: inline-block;}
 .pcat a:hover{text-decoration: none;}
 
-.tt_tab{border: 1px solid #f0f0f0;}
-.tt_tabMenu ul{list-style: none; padding: 0; margin: 0; background: #f9f9f9; -webkit-box-shadow: 0 -1px 0 #eee inset; box-shadow: 0 -1px 0 #eee inset;}
+.tt_tabMenu ul{list-style: none; padding: 0; margin: 0; background: #f9f9f9; -webkit-box-shadow: 0 -1px 0 #eee inset; box-shadow: 0 -1px 0 #eee inset; position: relative;}
 .tt_tabMenu ul:after{content: ""; display: block; clear: both;}
+.tt_tabMenu ul:before {
+    content: "";
+    display: block;
+    width: 1000%;
+    background: rgba(0,0,0,.04);
+    position: absolute;
+    top: -20px;
+    bottom: 0;
+    left: 50%;
+    margin-left: -500%;
+    z-index: -1;
+}
 .tt_tabMenu ul li{
     float: left;
     margin: 0;
@@ -1966,7 +1977,7 @@ html.responsive,.responsive body {overflow-y: hidden;}
 }
 .tt_tabMenu ul li:hover > span, .tt_tabMenu ul li:hover > a, .tt_tabMenu ul li.active > span, .tt_tabMenu ul li.active > a{-webkit-box-shadow: 0 40px 24px #fff inset; box-shadow: 0 40px 24px #fff inset;}
 .tt_tabMenu ul li:hover > span i, .tt_tabMenu ul li:hover > a i, .tt_tabMenu ul li.active > span i, .tt_tabMenu ul li.active > a i{background: #f4bf1e;}
-.tt_tabDetails{padding: 20px;}
+.tt_tabDetails{padding: 20px 0 0;}
 .tt_tabDetails .subheading{text-transform: capitalize;}
 
 .doc_list{list-style: none; padding: 0; margin: 0; color: #aaa; font-size: 15px; line-height: 24px;}

@@ -116,10 +116,10 @@ $(function () {
 		autoplayHoverPause: true,
 		autoplayTimeout: 3000,
 		smartSpeed: 1000,
+		animateOut: 'slideInUp',
 		margin: 1,
 		dots: false,
 		nav: true,
-		animateOut: 'slideInUp',
 		navElement: 'div',
 		navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
 		lazyLoad: true,
@@ -130,8 +130,7 @@ $(function () {
 			768: { items: 1 },
 			992: { items: 1 },
 			1600: { items: 1 }
-		},
-		
+		}
 	});
 
 	/*-------------------------------------TESTIMONIAL_SLIDER----------------------------*/
@@ -139,6 +138,7 @@ $(function () {
 		items: 1,
 		loop: true,
 		autoplay: true,
+		autoplayHoverPause: true,
 		autoplayTimeout: 3000,
 		smartSpeed: 1000,
 		margin: 30,
@@ -154,7 +154,7 @@ $(function () {
 			768: { items: 1 },
 			992: { items: 1 },
 			1600: { items: 1 }
-		}, 
+		}
 	});
 
 	/*-------------------------------------NEWS_SLIDER-----------------------------------*/
@@ -162,6 +162,7 @@ $(function () {
 		items: 1,
 		loop: true,
 		autoplay: true,
+		autoplayHoverPause: true,
 		autoplayTimeout: 3000,
 		smartSpeed: 1000,
 		margin: 30,
@@ -177,7 +178,7 @@ $(function () {
 			768: { items: 1 },
 			992: { items: 1 },
 			1600: { items: 1 }
-		}, 
+		}
 	});
 
 	/*-------------------------------------NEWS_SLIDER-----------------------------------*/
@@ -185,6 +186,7 @@ $(function () {
 		items: 4,
 		loop: true,
 		autoplay: true,
+		autoplayHoverPause: true,
 		autoplayTimeout: 3000,
 		smartSpeed: 1000,
 		margin: 1,
@@ -200,7 +202,7 @@ $(function () {
 			768: { items: 3 },
 			992: { items: 4 },
 			1600: { items: 4 }
-		}, 
+		}
 	});
 
 	/*-------------------------------------FAQ-------------------------------------------*/
@@ -233,28 +235,28 @@ $(function () {
 $(window).on('load', function() {
 	$("#product_slider_carousel").flexslider({
 		animation: "slide",
-		controlNav: false, 
-		itemWidth: 80, 
-		itemMargin: 5,
 		animationLoop: false,
-		slideshow: true, 
-		slideshowSpeed:2000, // slider show speed
+		slideshowSpeed: 2000, // slider show speed
+		controlNav: false,
+		slideshow: true,
+		itemWidth: 80,
+		itemMargin: 5,
 		controlsContainer: "#product_slider_carousel .flex-nav-container",
 		asNavFor: "#product_slider",  // slider ID
-		prevText: "←", 
-		nextText: "→"  
+		prevText: "←",
+		nextText: "→"
 	});
 
 	$("#product_slider").flexslider({
 		animation: "slide",
-		controlNav: false,
 		animationLoop: false,
-		slideshowSpeed:8000, // carousel show speed
+		slideshowSpeed: 8000, // carousel show speed
+		controlNav: false,
 		slideshow: true,
 		smoothHeight: true,
 		directionNav: false,
 		sync: "#product_slider_carousel", // carousel ID - thumbnail holder div
-	}); 
+	});
 });
 
 function lazy(){
