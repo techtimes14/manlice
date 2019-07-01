@@ -35,7 +35,7 @@ $(function () {
 	});
 
 	/*-------------------------------------ACTICE_NAV------------------------------------*/
-/* 	var loc 	= window.location.href;
+	/* var loc 	= window.location.href;
 	loc 		= loc.split(SITE_LOC_PATH+'/');
 	loc 		= loc[1].split('/');
 	var newLoc 	= (loc.length > 2) ? SITE_LOC_PATH + loc[loc.length - 2] + '/' : window.location.href;
