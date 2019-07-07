@@ -1848,10 +1848,21 @@ html.responsive,.responsive body {overflow-y: hidden;}
 
 /* NEWS
 ---------------------------------*/
+.news_list .tt_box{margin: 0 0 0 70px; position: relative;}
+.news_list .tt_box .tt_text{margin: 0;}
+.news_list .tt_box .subheading{font-size:26px; line-height: 30px; padding: 15px 0; margin: 0; text-transform: capitalize;}
+.news_list .tt_info{margin: 0; padding: 4px 0; border-top: 1px solid #eee;}
+.news_list .tt_info > span{display: inline-block; vertical-align: top;}
 .news_list .tt_box figure{position: relative; overflow: hidden; padding-top: 50%; -webkit-border-radius: 0; border-radius: 0;}
 .news_list .tt_box figure a{display: block;}
-.news_list .tt_box figure img{position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
-.news_list .tt_box figure .tt_date{
+.news_list .tt_box figure img{position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 100%;}
+
+
+.home_news_list.news_list .tt_box{margin: 0;}
+.home_news_list.news_list .tt_box .tt_text{margin: 10px 0 0;}
+.home_news_list.news_list .tt_box .subheading{font-size: 15px; line-height: 26px; padding: 0; margin-bottom: 10px;}
+.home_news_list.news_list .tt_box .subheading:hover a{text-decoration: underline !important;}
+.home_news_list.news_list .tt_box figure .tt_date{
     font-size: 11px;
     line-height: 18px;
     color: #fff;
@@ -1862,8 +1873,6 @@ html.responsive,.responsive body {overflow-y: hidden;}
     left: 0;
     z-index: 1;
 }
-.news_list .tt_box .subheading{font-size: 15px; margin-bottom: 10px; text-transform: capitalize;}
-.news_list .tt_box .subheading:hover a{text-decoration: underline !important;}
 /*NEWS END*/
 
 /* CONTACT PAGE
