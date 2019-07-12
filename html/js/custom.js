@@ -229,6 +229,31 @@ $(function () {
 		$(this).parents('.tt_tabMenu').siblings('.tt_tabDetails').children('.tt_tabInfo').hide();
 		$(this).parents('.tt_tabMenu').siblings('.tt_tabDetails').children('.tt_tabInfo').filter(':eq(' + index + ')').show();
 	});
+
+	/*-------------------------------------LC_LIGHTBOX-----------------------------------*/
+	lc_lightbox('.lightbox', {
+		wrap_class: 'lcl_fade_oc',
+		gallery : true,
+		thumb_attr: 'data-lcl-thumb',
+		skin: 'dark',
+		radius: 0,
+		padding	: 0,
+		border_w: 0,
+		shadow: true,
+		autoplay: false,
+		counter: true,
+		ol_opacity: 0.8,
+		ol_color: '#000',
+		cmd_position: 'outer', //inner
+		data_position: 'under', 
+		ins_close_pos: 'corner', 
+		nav_btn_pos: 'middle', 
+		txt_hidden: 767,
+		thumbs_w: 90,
+		thumbs_h: 90,
+		modal: false,
+		rclick_prevent: false,
+	});
 });
 
 /*-------------------------------------FLEX SLIDER---------------------------------------*/
